@@ -24,7 +24,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
             <img
-              src="/assets/images/A2C_Original_Primary_White.png"
+              src={`${import.meta.env.BASE_URL}assets/images/A2C_Original_Primary_White.png`}
               alt="A2C Logistics"
               className="h-12"
             />
