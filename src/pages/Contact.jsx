@@ -23,9 +23,9 @@ export default function Contact() {
     const data = new FormData(form)
 
     // TODO: Replace with your Formspree endpoint
-    // Example: https://formspree.io/f/YOUR_FORM_ID
+    // Example: https://formspree.io/f/mvzvrleo
     try {
-      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      const response = await fetch('https://formspree.io/f/mvzvrleo', {
         method: 'POST',
         body: data,
         headers: { Accept: 'application/json' },
