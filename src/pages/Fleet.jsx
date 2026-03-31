@@ -30,10 +30,10 @@ const fleetFeatures = [
 ]
 
 const equipmentTypes = [
-  { type: 'Dry Van', description: 'Standard enclosed trailers for general freight' },
-  { type: 'Flatbed', description: 'Open trailers for oversized and heavy cargo' },
-  { type: 'Reefer', description: 'Temperature-controlled trailers for perishable goods' },
-  { type: 'Step Deck', description: 'Low-profile trailers for tall or heavy equipment' },
+  { type: 'Dry Van', description: 'Standard enclosed trailers for general freight', image: 'truck-closeup.jpg' },
+  { type: 'Flatbed', description: 'Open trailers for oversized and heavy cargo', image: 'truck-highway.jpg' },
+  { type: 'Reefer', description: 'Temperature-controlled trailers for perishable goods', image: 'truck-road.jpg' },
+  { type: 'Step Deck', description: 'Low-profile trailers for tall or heavy equipment', image: 'trucks-parked.jpg' },
 ]
 
 export default function Fleet() {
@@ -97,10 +97,11 @@ export default function Fleet() {
             {equipmentTypes.map((item, i) => (
               <ScrollReveal key={item.type} delay={i * 0.1}>
                 <div className="bg-white rounded-lg p-8 border border-a2c-gray/20">
-                  {/* Placeholder for equipment photo */}
-                  <div className="aspect-[16/9] bg-a2c-gray/10 rounded mb-6 flex items-center justify-center">
-                    <span className="text-a2c-gray text-sm">{item.type} Photo</span>
-                  </div>
+                  <img
+                    src={`${import.meta.env.BASE_URL}assets/images/${item.image}`}
+                    alt={item.type}
+                    className="aspect-[16/9] object-cover rounded mb-6 w-full"
+                  />
                   <h3 className="font-heading text-xl text-a2c-black mb-2">{item.type}</h3>
                   <p className="text-gray-600 text-sm">{item.description}</p>
                 </div>
@@ -125,11 +126,13 @@ export default function Fleet() {
           </ScrollReveal>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {[1, 2, 3, 4, 5, 6].map((_, i) => (
+            {['hero-truck.jpg', 'truck-highway.jpg', 'truck-road.jpg', 'fleet-aerial.jpg', 'truck-closeup.jpg', 'trucks-parked.jpg'].map((img, i) => (
               <ScrollReveal key={i} delay={i * 0.08}>
-                <div className="aspect-[4/3] bg-a2c-light-gray rounded-lg flex items-center justify-center">
-                  <span className="text-a2c-gray text-sm">Fleet Photo {i + 1}</span>
-                </div>
+                <img
+                  src={`${import.meta.env.BASE_URL}assets/images/${img}`}
+                  alt={`Fleet photo ${i + 1}`}
+                  className="aspect-[4/3] object-cover rounded-lg w-full"
+                />
               </ScrollReveal>
             ))}
           </div>

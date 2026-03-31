@@ -6,8 +6,13 @@ import AnimatedBackground from './AnimatedBackground'
 export default function Hero() {
   return (
     <section className="relative flex items-center justify-center bg-a2c-black overflow-hidden" style={{ height: '100dvh' }}>
-      {/* Animated particle/network background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-a2c-black via-a2c-dark-gray to-a2c-black" />
+      {/* Background image + overlay */}
+      <img
+        src={`${import.meta.env.BASE_URL}assets/images/hero-truck.jpg`}
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      <div className="absolute inset-0 bg-a2c-black/75" />
       <AnimatedBackground />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(239,57,44,0.08)_0%,_transparent_70%)]" />
 

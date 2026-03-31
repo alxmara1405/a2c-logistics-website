@@ -119,9 +119,11 @@ export default function Services() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.15}>
-              <div className="aspect-[4/3] bg-a2c-gray/20 rounded-lg flex items-center justify-center">
-                <span className="text-a2c-gray text-sm">Team / Driver Photo</span>
-              </div>
+              <img
+                src={`${import.meta.env.BASE_URL}assets/images/truck-highway.jpg`}
+                alt="A2C truck on the highway"
+                className="aspect-[4/3] object-cover rounded-lg w-full"
+              />
             </ScrollReveal>
           </div>
         </div>

@@ -53,10 +53,11 @@ export default function About() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <ScrollReveal>
-              {/* Placeholder for company photo */}
-              <div className="aspect-[4/3] bg-a2c-light-gray rounded-lg flex items-center justify-center">
-                <span className="text-a2c-gray text-sm">Company Photo</span>
-              </div>
+              <img
+                src={`${import.meta.env.BASE_URL}assets/images/truck-road.jpg`}
+                alt="A2C Logistics truck on the road"
+                className="aspect-[4/3] object-cover rounded-lg w-full"
+              />
             </ScrollReveal>
 
             <ScrollReveal delay={0.15}>

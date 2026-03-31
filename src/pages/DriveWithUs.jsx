@@ -1,7 +1,11 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { DollarSign, Home, Heart, TrendingUp, CheckCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Separator } from '@/components/ui/separator'
 import PageTransition from '@/components/sections/PageTransition'
 import ScrollReveal from '@/components/sections/ScrollReveal'
@@ -38,6 +42,29 @@ const requirements = [
 ]
 
 export default function DriveWithUs() {
+  const [submitted, setSubmitted] = useState(false)
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const form = e.target
+    const data = new FormData(form)
+
+    // TODO: Replace with your Formspree endpoint
+    try {
+      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' },
+      })
+      if (response.ok) {
+        setSubmitted(true)
+        form.reset()
+      }
+    } catch {
+      alert('Something went wrong. Please try again or contact us directly.')
+    }
+  }
+
   return (
     <PageTransition>
       {/* Hero */}
@@ -132,16 +159,83 @@ export default function DriveWithUs() {
               </p>
             </div>
 
-            {/* Placeholder form — fields TBD by user */}
-            <div className="bg-a2c-light-gray rounded-lg p-10 border border-a2c-gray/20 text-center">
-              <p className="text-gray-500 mb-2 font-heading text-lg">Application Form</p>
-              <p className="text-gray-400 text-sm mb-6">
-                Form fields will be configured once the field list is provided.
-              </p>
-              <p className="text-gray-400 text-sm">
-                Powered by Formspree — submissions sent directly to your email.
-              </p>
-            </div>
+            {submitted ? (
+              <div className="bg-green-50 border border-green-200 rounded-lg p-8 text-center">
+                <p className="text-green-800 font-semibold text-lg mb-2">Application Submitted!</p>
+                <p className="text-green-600">
+                  Thank you for your interest in driving with A2C. Our team will review your
+                  application and be in touch soon.
+                </p>
+                <Button
+                  onClick={() => setSubmitted(false)}
+                  variant="outline"
+                  className="mt-4"
+                >
+                  Submit Another Application
+                </Button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="space-y-2">
+                  <Label htmlFor="fullName">Full Name</Label>
+                  <Input
+                    id="fullName"
+                    name="fullName"
+                    placeholder="John Doe"
+                    required
+                    className="border-a2c-gray/50 focus:border-a2c-red"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email</Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="john@example.com"
+                    required
+                    className="border-a2c-gray/50 focus:border-a2c-red"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="phone">Phone Number</Label>
+                  <Input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    placeholder="(555) 123-4567"
+                    required
+                    className="border-a2c-gray/50 focus:border-a2c-red"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="experience">Years of Experience (CDL Class A)</Label>
+                  <Select name="experience" required>
+                    <SelectTrigger className="border-a2c-gray/50 focus:border-a2c-red">
+                      <SelectValue placeholder="Select your experience" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="less-than-1">Less than 1 year</SelectItem>
+                      <SelectItem value="1-2">1–2 years</SelectItem>
+                      <SelectItem value="3-5">3–5 years</SelectItem>
+                      <SelectItem value="5-10">5–10 years</SelectItem>
+                      <SelectItem value="10+">10+ years</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full bg-a2c-red hover:bg-a2c-red/90 text-white font-semibold py-6"
+                >
+                  Submit Application
+                </Button>
+              </form>
+            )}
 
             <Separator className="my-12" />
 
