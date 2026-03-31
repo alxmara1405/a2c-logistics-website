@@ -48,9 +48,9 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
-            <Link to="/contact">
+            <Link to="/drive-with-us#apply">
               <Button className="ml-4 bg-a2c-red hover:bg-a2c-red/90 text-white font-semibold">
-                Contact Us
+                Apply Now
               </Button>
             </Link>
           </div>
@@ -91,9 +91,9 @@ export default function Navbar() {
                   {link.name}
                 </Link>
               ))}
-              <Link to="/contact" onClick={() => setMobileOpen(false)}>
+              <Link to="/drive-with-us#apply" onClick={() => setMobileOpen(false)}>
                 <Button className="w-full mt-4 bg-a2c-red hover:bg-a2c-red/90 text-white font-semibold">
-                  Contact Us
+                  Apply Now
                 </Button>
               </Link>
             </div>

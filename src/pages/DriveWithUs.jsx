@@ -144,7 +144,7 @@ export default function DriveWithUs() {
       </section>
 
       {/* Application Form */}
-      <section className="py-24 bg-a2c-white">
+      <section id="apply" className="py-24 bg-a2c-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-12">
