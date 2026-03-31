@@ -36,7 +36,7 @@ const benefits = [
 const requirements = [
   'Valid Class A CDL',
   'Clean driving record',
-  'Minimum 1 year OTR experience',
+  'Minimum 2 years CDL Class A experience',
   'Pass DOT physical and drug screening',
   'Professional attitude and strong work ethic',
 ]
@@ -218,8 +218,7 @@ export default function DriveWithUs() {
                       <SelectValue placeholder="Select your experience" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="less-than-1">Less than 1 year</SelectItem>
-                      <SelectItem value="1-2">1–2 years</SelectItem>
+                      <SelectItem value="2-3">2–3 years</SelectItem>
                       <SelectItem value="3-5">3–5 years</SelectItem>
                       <SelectItem value="5-10">5–10 years</SelectItem>
                       <SelectItem value="10+">10+ years</SelectItem>
