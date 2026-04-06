@@ -8,9 +8,9 @@ import PageTransition from '@/components/sections/PageTransition'
 import ScrollReveal from '@/components/sections/ScrollReveal'
 
 const contactInfo = [
-  { icon: Phone, label: 'Phone', value: '(XXX) XXX-XXXX', href: 'tel:' },
-  { icon: Mail, label: 'Email', value: 'info@a2clogistics.com', href: 'mailto:info@a2clogistics.com' },
-  { icon: MapPin, label: 'Location', value: 'Lincoln, NE', href: null },
+  { icon: Phone, label: 'Phone', value: '(833) 562-3222', href: 'tel:+18335623222' },
+  { icon: Mail, label: 'Email', value: 'kevin@a2clogisticsco.com', href: 'mailto:kevin@a2clogisticsco.com' },
+  { icon: MapPin, label: 'Address', value: '5930 Colfax Avenue, Lincoln, NE', href: null },
   { icon: Clock, label: 'Hours', value: 'Mon–Fri: 8AM–6PM', href: null },
 ]
 
@@ -83,7 +83,7 @@ export default function Contact() {
                         <p className="text-sm text-gray-500 uppercase tracking-wider">{item.label}</p>
                         {item.href ? (
                           <a
-                            href={item.href + (item.href.includes(':') ? item.value : '')}
+                            href={item.href}
                             className="text-a2c-black font-medium hover:text-a2c-red transition-colors"
                           >
                             {item.value}
