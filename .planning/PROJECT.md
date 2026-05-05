@@ -114,9 +114,10 @@ The current Vite/React site mixes shipper messaging (Services, Fleet) with drive
 
 ## Constraints
 
-- **Tech stack**: Open — no strong preference. SEO is critical (driver-job search queries), so the working assumption is **Next.js (App Router) + Tailwind 4 + MDX** unless the planning phase surfaces a better fit. Astro is the alternative if interactivity stays minimal. Existing `package.json` deps (framer-motion, lucide-react, base-ui, shadcn) carry over where useful.
+- **Tech stack**: **Astro 6 + Tailwind 4 + MDX content collections + React 19 islands** (form + OO/Company toggle only). Locked during research synthesis (`research/STACK.md` HIGH-confidence pick) — Astro beats Next.js for a 6–8 page mobile-LCP marketing site with two interactive surfaces; ~85–110 KB JS savings vs. Next baseline; first-party Cloudflare adapter parity. Existing `package.json` deps (`lucide-react`, `class-variance-authority`, `clsx`, `tailwind-merge`, `@base-ui/react`) carry over inside React islands; `framer-motion` is reinstalled as `motion@12` (renamed package, identical API).
 - **Content**: All copy, pay numbers, testimonials, and structured data live in MDX/markdown in the repo (no headless CMS). Edits are made via PR or a git-based CMS UI like TinaCMS.
-- **Hosting**: Netlify or Cloudflare Pages (final pick deferred to deployment phase). Both support Next.js SSG/SSR and Edge Functions for the form handler.
+- **Hosting**: **Cloudflare Pages** (locked) with the `@astrojs/cloudflare` adapter. Form handler runs as a Pages Function with `nodejs_compat`. Three KV namespaces (`IDEMPOTENCY`, `RATELIMIT`, `LEAD_FALLBACK`) plus a Cron Trigger for the daily synthetic submission test.
+- **Domain & DNS**: Domain `a2clogistics.com` is registered at **Squarespace** (registrar stays — no transfer). DNS is **delegated to Cloudflare** by changing nameservers in Squarespace's domain settings to Cloudflare's. All DNS records (apex via CNAME flattening, www CNAME → Pages, SPF/DKIM/DMARC TXT for Resend, MX records if email stays) live in the Cloudflare dashboard. Existing Bluehost hosting is cancelled once DNS is on Cloudflare; **EXCEPTION:** if A2C uses Bluehost-hosted email mailboxes, MX records must point at Bluehost OR email migrates to Google Workspace / Fastmail before cancellation.
 - **Form delivery**: Submissions email recruiting + write a row to a Google Sheet or Airtable. Built behind a swappable adapter so a future ATS (Tenstreet/DriverReach) can replace the email/sheet sink without rebuilding the form UI.
 - **Brand fidelity**: Nevis Bold typography is licensed — need a licensed copy or web-font equivalent before launch. Color palette and logo system are non-negotiable per the brand book.
 - **Compliance**: DOT/FMCSA recruiting copy norms apply (no protected-class questions, voluntary consent for recruiter contact). Privacy policy required because of PII collection.
@@ -141,7 +142,12 @@ The current Vite/React site mixes shipper messaging (Services, Fleet) with drive
 | MDX/markdown content in-repo (no headless CMS) | User-selected; updates are infrequent enough; avoids the cost/maintenance of a second system | — Pending |
 | Form: email + Google Sheet/Airtable, built pluggable | User-selected MVP path; ATS integration deferred but architecturally enabled | — Pending |
 | Ship plan: Netlify or Cloudflare Pages | User indicated non-Vercel host preference; both support SSG/SSR + edge function for the form | — Pending |
-| Tech stack default to Next.js (App Router) unless planning surfaces a better fit | SEO-driven recruitment site; SSR + image optimization + ecosystem maturity all favor Next | — Pending |
+| Tech stack default to Next.js (App Router) unless planning surfaces a better fit | SEO-driven recruitment site; SSR + image optimization + ecosystem maturity all favor Next | ⚠️ Revisit — superseded |
+| **Astro 6 (not Next.js)** locked during research synthesis | Zero-JS-by-default beats Next on a 6–8 page mobile-LCP marketing site; only two interactive surfaces (form + toggle) — textbook Astro Islands; first-party Cloudflare adapter parity | — Pending |
+| **Cloudflare Pages** locked as host (over Netlify) | Edge-function locality (truck-stop wifi audience), 100k/day free Worker invocations, first-party Astro adapter, KV bindings + Cron Trigger native | — Pending |
+| **Squarespace registrar + Cloudflare DNS + Cloudflare Pages hosting** (Option B) | Domain stays at Squarespace (no transfer), but nameservers point at Cloudflare so apex CNAME flattening + Cloudflare proxy + clean SPF/DKIM/DMARC editing all work natively. Bluehost hosting cancelled once DNS is on Cloudflare. | — Pending |
+| `LeadSink` adapter pattern (email REQUIRED + sheet OPTIONAL + future ATS pluggable) | Pitfall 1 prevention (silent form failure is the catastrophic failure mode for a single-conversion-goal site); future Tenstreet/DriverReach drops in cleanly | — Pending |
+| Two physical SSG'd routes for OO/Company pay (NOT a query param) | Locked by Pitfall 7 — Google dedupes `?role=` variants and only one ranks; client-only state is invisible to crawlers | — Pending |
 
 ## Evolution
 
