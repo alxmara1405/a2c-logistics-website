@@ -2,8 +2,8 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: Phase 1 planned — 6 plans across 5 waves; ready for /gsd-execute-phase 1
-last_updated: "2026-05-05T13:21:10.661Z"
+status: BLOCKED on user setup — see PROJECT.md hosting/DNS section + plans/01-00-foundation Task 0.3 checkpoint. Squarespace→Cloudflare nameserver switch + 7 other content/infra blockers required before /gsd-execute-phase 1.
+last_updated: "2026-05-05T15:31:33.798Z"
 progress:
   total_phases: 3
   completed_phases: 0
@@ -29,7 +29,7 @@ progress:
 **Milestone:** v1 launch
 **Phase:** 1 of 3 — Foundation + Form + Pay Engine
 **Plan:** None (planning has not started)
-**Status:** Phase 1 planned — 6 plans across 5 waves; ready for /gsd-execute-phase 1
+**Status:** BLOCKED on user setup — see PROJECT.md hosting/DNS section + plans/01-00-foundation Task 0.3 checkpoint. Squarespace→Cloudflare nameserver switch + 7 other content/infra blockers required before /gsd-execute-phase 1.
 
 ```
 Roadmap: [X] Phase 1 [ ] Phase 2 [ ] Phase 3
