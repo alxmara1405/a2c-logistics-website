@@ -215,10 +215,12 @@ declare namespace App { interface Locals extends Runtime {} }
        ```
        Verify `@astrojs/cloudflare@^13.3`, `@astrojs/react@^4`, `@astrojs/mdx@^4.4`.
 
-    5. **Install Tailwind v4 via the Vite plugin** (NOT the PostCSS plugin):
+    5. **Install Tailwind v4 via the Vite plugin** (NOT the PostCSS plugin) + icon library + Wave-3 deps that other plans rely on:
        ```bash
        pnpm add tailwindcss@^4.2 @tailwindcss/vite@^4.2
+       pnpm add lucide-astro lucide-react
        ```
+       (Conform / Resend / jose / Turnstile install in Plan 03 alongside their use sites.)
        Then **rewrite astro.config.mjs verbatim from RESEARCH.md §1.2** including: `output: "static"`, the `cloudflare()` adapter call with `mode: "directory"`, `runtime.platformProxy.enabled: true`, `imageService: "compile"`, the `integrations: [react(), mdx()]` array, and `vite: { plugins: [tailwindcss()] }`. Do NOT add a `tailwind.config.js` — Tailwind v4 uses CSS-first config.
 
     6. **Create src/styles/global.css** EXACTLY as in RESEARCH.md §1.4 — `@import "tailwindcss";` followed by the `@theme { }` block with all four `--color-brand-*` vars (per BRAND-01 / D-31), both `--font-*` vars (per BRAND-02 / D-32), and the seven `--spacing-*` tokens from UI-SPEC §Spacing. Hex values are non-negotiable: `#FFFFFF`, `#000000`, `#EF392C`, `#D9D9D9`. No additional tokens.

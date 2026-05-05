@@ -3,13 +3,14 @@ phase: 01-foundation-form-pay-engine
 plan: 05
 type: execute
 wave: 5
-depends_on: [01-04-wireup-compliance]
+depends_on:
+  - 01-foundation-form-pay-engine/04
 autonomous: false
 files_modified:
   - tests/unit/lead-schema.spec.ts
   - tests/integration/sink-chaos.spec.ts
   - tests/integration/lead-dispatch.spec.ts
-  - tests/build/pay-routes.spec.ts
+  - tests/build/pay-routes-extra.spec.ts
   - tests/build/legal-pages.spec.ts
   - tests/build/recruiter-links.spec.ts
   - tests/acceptance/form-security.spec.ts
@@ -419,7 +420,7 @@ Why autonomous: false — the manual smoke check, Rich Results validation, DNS c
 
 <task type="auto">
   <name>Task 5.4: Build-output assertions (pay routes + JSON-LD + legal pages + recruiter links)</name>
-  <files>tests/build/pay-routes.spec.ts, tests/build/legal-pages.spec.ts, tests/build/recruiter-links.spec.ts</files>
+  <files>tests/build/pay-routes-extra.spec.ts, tests/build/legal-pages.spec.ts, tests/build/recruiter-links.spec.ts</files>
   <read_first>
     - dist/pay/owner-operator/index.html and dist/pay/company/index.html (post-build artifacts to introspect)
     - .planning/phases/01-foundation-form-pay-engine/01-RESEARCH.md §3.3 (JobPosting JSON-LD shape)
@@ -434,7 +435,7 @@ Why autonomous: false — the manual smoke check, Rich Results validation, DNS c
     }
     ```
 
-    Create `tests/build/pay-routes.spec.ts`:
+    Create `tests/build/pay-routes-extra.spec.ts`:
     ```ts
     import { describe, it, expect } from "vitest";
     import { readFileSync } from "fs";
@@ -551,7 +552,7 @@ Why autonomous: false — the manual smoke check, Rich Results validation, DNS c
   </verify>
   <acceptance_criteria>
     - All three test files pass against the post-build `dist/`
-    - `tests/build/pay-routes.spec.ts` asserts unique titles, canonical-to-self, JobPosting JSON-LD with baseSalary, and `/pay` 308 redirect
+    - `tests/build/pay-routes-extra.spec.ts` asserts unique titles, canonical-to-self, JobPosting JSON-LD with baseSalary, and `/pay` 308 redirect
     - `tests/build/legal-pages.spec.ts` asserts DraftBanner + noindex on all three legal pages
     - `tests/build/recruiter-links.spec.ts` asserts tel: + /apply CTA + MC#/USDOT# placeholder on every emitted HTML page
   </acceptance_criteria>
@@ -753,7 +754,12 @@ Why autonomous: false — the manual smoke check, Rich Results validation, DNS c
 
     Sign-off line in `scripts/manual-iphone-smoke.md` filled in (date + operator initials).
   </how-to-verify>
-  <continue-when>The playbook sign-off section shows ✅ on all four checks. Phase 1 is then verified end-to-end and ready for Phase 2 to build on top.</continue-when>
+  <continue-when>The playbook sign-off section shows ✅ on all four checks AND:
+    - Real recruiter phone number is installed in `src/data/recruiter.ts` (no `+15551234567` placeholder)
+    - `bash scripts/check-dns.sh ${SENDING_DOMAIN}` exits 0 against the live sending domain
+    - Resend dashboard shows the sending domain as Verified
+    - The placeholder `PAY_NUMBERS_ARE_PLACEHOLDER` constant in `src/data/pay.ts` is `false` AND real CPM/% numbers are populated from A2C operations (or this phase explicitly ships with placeholders flagged for hot-fix before launch — recruiting team aware).
+  Phase 1 is then verified end-to-end and ready for Phase 2 to build on top.</continue-when>
 </task>
 
 </tasks>

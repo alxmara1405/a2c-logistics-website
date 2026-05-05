@@ -16,6 +16,7 @@ files_modified:
   - src/lib/security.ts
   - src/lib/alerts.ts
   - src/components/islands/ApplyForm.tsx
+  - src/components/sections/ApplyRoleToggle.astro
   - src/pages/apply.astro
   - src/pages/apply/success.astro
   - src/pages/_internal/synthetic-submit.ts

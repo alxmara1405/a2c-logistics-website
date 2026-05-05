@@ -11,6 +11,7 @@ files_modified:
   - src/pages/pay/owner-operator.astro
   - src/pages/pay/company.astro
   - src/pages/pay/index.astro
+  - public/_redirects
   - src/components/sections/PayBadge.astro
   - src/components/sections/PayToggle.astro
   - src/components/sections/JobPostingJsonLd.astro

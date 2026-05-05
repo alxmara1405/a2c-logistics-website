@@ -3,15 +3,17 @@ phase: 01-foundation-form-pay-engine
 plan: 04
 type: execute
 wave: 4
-depends_on: [01-02-pay-routes, 01-03-form-handler]
+depends_on:
+  - 01-foundation-form-pay-engine/02
+  - 01-foundation-form-pay-engine/03
 autonomous: true
 files_modified:
   - src/content/legal/privacy.mdx
   - src/content/legal/sms-terms.mdx
   - src/content/legal/eeo.mdx
-  - src/content/config.ts
   - src/components/sections/DraftBanner.astro
   - src/pages/[slug].astro
+  - src/pages/404.astro
   - src/components/Header.astro
   - src/components/Footer.astro
   - src/data/recruiter.ts
@@ -29,13 +31,13 @@ must_haves:
   truths:
     - "Privacy Policy, SMS Terms, and EEO Statement are live at /privacy, /sms-terms, /eeo and visibly marked 'Draft — pending counsel review'"
     - "Footer links all three legal pages on every page; apply form links Privacy + SMS Terms above the consent checkbox"
-    - "Recruiter tel: + sms: links resolve from a single typed source (src/data/recruiter.ts) and appear in Header (mobile icon-only with aria-label) + Footer of every page"
+    - "Recruiter tel: + sms: links resolve from a single typed source (src/data/recruiter.ts) and appear in Header (mobile icon-only with aria-label='Call recruiter') + Footer of every page"
+    - "Mobile header shows recruiter tel via icon button (lucide-astro Phone icon, aria-label='Call recruiter') — replaces Wave-1 hidden-on-mobile state to satisfy FUNNEL-07"
     - "Header CTA ('Apply') routes to /apply on every page; pay-page CTAs deep-link with role= preserved"
     - "404 page is custom-branded with site nav + apply CTA (per UI-SPEC §empty-states + SITE-07)"
     - "Form schema rejects fields outside the EEOC-friendly whitelist (no SSN/MVR/DOB/marital/religion/etc.) — verified by Zod failing on extra keys"
-  outcomes:
     - "A driver clicking 'Privacy Policy' from the footer or apply form sees a draft policy that names PII collected, retention period, and deletion request contact"
-    - "Every page on the site exposes the recruiter phone via tel:+15551234567 (or chosen number) with click-to-call working from mobile Safari"
+    - "Every page on the site exposes the recruiter phone via tel:+1... with click-to-call working from mobile Safari"
     - "A driver landing on /404 sees site nav + Apply CTA, never a dead-end"
   artifacts:
     - path: "src/content/legal/privacy.mdx"
@@ -134,36 +136,18 @@ Output: Every page has a working "Apply" CTA + recruiter tel:/sms: link, the thr
 </task>
 
 <task type="auto">
-  <name>Task 4.2: Legal MDX content collection + dynamic [slug] route + DraftBanner component</name>
-  <files>src/content/config.ts, src/content/legal/privacy.mdx, src/content/legal/sms-terms.mdx, src/content/legal/eeo.mdx, src/components/sections/DraftBanner.astro, src/pages/[slug].astro</files>
+  <name>Task 4.2: Legal MDX content + dynamic [slug] route + DraftBanner component</name>
+  <files>src/content/legal/privacy.mdx, src/content/legal/sms-terms.mdx, src/content/legal/eeo.mdx, src/components/sections/DraftBanner.astro, src/pages/[slug].astro</files>
   <read_first>
     - .planning/phases/01-foundation-form-pay-engine/01-RESEARCH.md §6 (compliance-drafts pattern + collection schema)
     - .planning/phases/01-foundation-form-pay-engine/01-UI-SPEC.md §"Empty / Draft States" (DraftBanner copy + visual)
     - .planning/phases/01-foundation-form-pay-engine/01-CONTEXT.md D-35, D-36 (drafts ship now, counsel review is Phase 3 COMP-06)
-    - src/content/config.ts (current state from Wave 1 — MUST extend, not overwrite)
+    - src/content/config.ts (Wave 1 already declared the `legal` collection schema — DO NOT modify; just produce MDX entries that match its frontmatter)
   </read_first>
   <action>
-    1. **Extend src/content/config.ts** to add the `legal` collection (in addition to whatever Wave 1 already declared for pages/pay-content/etc.):
-       ```ts
-       import { defineCollection, z } from "astro:content";
+    **Note on src/content/config.ts:** Wave 1 (Plan 01) already declared the `legal` content collection with `title`, `slug`, `draft`, `effective` schema. This task does NOT re-create it — the MDX entries below conform to the Wave-1 schema. If Wave 1's schema differs, fix Wave 1, not Plan 04.
 
-       const legal = defineCollection({
-         type: "content",
-         schema: z.object({
-           title: z.string(),
-           slug: z.string(),
-           draft: z.boolean().default(true),
-           effective: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
-         }),
-       });
-
-       export const collections = {
-         /* preserve any existing collections */,
-         legal,
-       };
-       ```
-
-    2. **Create src/components/sections/DraftBanner.astro** — small component:
+    1. **Create src/components/sections/DraftBanner.astro** — small component:
        ```astro
        <aside role="note" class="bg-yellow-50 border-l-4 border-brand-red p-4 my-6 text-sm">
          <p class="font-display text-brand-black">Draft — pending counsel review (Phase 3)</p>
@@ -243,11 +227,10 @@ Output: Every page has a working "Apply" CTA + recruiter tel:/sms: link, the thr
        Each legal page is `noindex` per UI-SPEC §SEO + ROADMAP Phase 3 SEO-07.
   </action>
   <verify>
-    <automated>test -f src/content/legal/privacy.mdx && test -f src/content/legal/sms-terms.mdx && test -f src/content/legal/eeo.mdx && test -f src/components/sections/DraftBanner.astro && test -f src/pages/[slug].astro && grep -q "draft: true" src/content/legal/privacy.mdx && grep -q "STOP" src/content/legal/sms-terms.mdx && grep -q "equal" src/content/legal/eeo.mdx && grep -q "tcpa_consent_v1" src/content/legal/sms-terms.mdx && grep -q "pending counsel review" src/components/sections/DraftBanner.astro && grep -q "getCollection" src/pages/[slug].astro && grep -q "noindex" src/pages/[slug].astro && grep -q "legal" src/content/config.ts && pnpm exec astro check && pnpm build && test -f dist/privacy/index.html && test -f dist/sms-terms/index.html && test -f dist/eeo/index.html</automated>
+    <automated>test -f src/content/legal/privacy.mdx && test -f src/content/legal/sms-terms.mdx && test -f src/content/legal/eeo.mdx && test -f src/components/sections/DraftBanner.astro && test -f src/pages/[slug].astro && grep -q "draft: true" src/content/legal/privacy.mdx && grep -q "STOP" src/content/legal/sms-terms.mdx && grep -q "equal" src/content/legal/eeo.mdx && grep -q "tcpa_consent_v1" src/content/legal/sms-terms.mdx && grep -q "pending counsel review" src/components/sections/DraftBanner.astro && grep -q "getCollection" src/pages/[slug].astro && grep -q "noindex" src/pages/[slug].astro && pnpm exec astro check && pnpm build && test -f dist/privacy/index.html && test -f dist/sms-terms/index.html && test -f dist/eeo/index.html</automated>
   </verify>
   <acceptance_criteria>
-    - `src/content/config.ts` declares the `legal` collection with `title`, `slug`, `draft`, `effective` schema
-    - All three MDX files exist with `draft: true` frontmatter and import the DraftBanner
+    - All three MDX files exist with `draft: true` frontmatter and import the DraftBanner (Wave 1's `legal` collection schema is consumed unchanged)
     - `src/content/legal/sms-terms.mdx` contains literal `STOP`, `HELP`, and `tcpa_consent_v1` strings
     - `src/components/sections/DraftBanner.astro` renders "Draft — pending counsel review (Phase 3)"
     - `src/pages/[slug].astro` uses `getCollection("legal")` for static-paths and renders entries with `noindex` meta
