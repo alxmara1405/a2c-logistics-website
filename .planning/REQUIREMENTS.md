@@ -179,29 +179,93 @@ Explicitly excluded from any version. Listed to prevent scope creep — anti-fea
 
 ## Traceability
 
-Populated by `gsd-roadmapper` during roadmap creation. Currently unmapped pending roadmap.
+Mapped by `gsd-roadmapper` on 2026-05-04. Every v1 requirement maps to exactly one phase (no orphans, no duplicates).
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FUNNEL-01 — FUNNEL-08 | TBD | Pending |
-| PAY-01 — PAY-07 | TBD | Pending |
-| STORY-01 — STORY-04 | TBD | Pending |
-| TRUST-01 — TRUST-06 | TBD | Pending |
-| ECO-01 — ECO-04 | TBD | Pending |
-| SITE-01 — SITE-07 | TBD | Pending |
-| BRAND-01 — BRAND-05 | TBD | Pending |
-| SEO-01 — SEO-08 | TBD | Pending |
-| CUT-01 — CUT-04 | TBD | Pending |
-| COMP-01 — COMP-07 | TBD | Pending |
-| SEC-01 — SEC-06 | TBD | Pending |
-| OPS-01 — OPS-03 | TBD | Pending |
-| HOST-01 — HOST-04 | TBD | Pending |
+| FUNNEL-01 | Phase 1 | Pending |
+| FUNNEL-02 | Phase 1 | Pending |
+| FUNNEL-03 | Phase 1 | Pending |
+| FUNNEL-04 | Phase 1 | Pending |
+| FUNNEL-05 | Phase 1 | Pending |
+| FUNNEL-06 | Phase 1 | Pending |
+| FUNNEL-07 | Phase 1 | Pending |
+| FUNNEL-08 | Phase 1 | Pending |
+| PAY-01 | Phase 1 | Pending |
+| PAY-02 | Phase 1 | Pending |
+| PAY-03 | Phase 1 | Pending |
+| PAY-04 | Phase 1 | Pending |
+| PAY-05 | Phase 1 | Pending |
+| PAY-06 | Phase 1 | Pending |
+| PAY-07 | Phase 1 | Pending |
+| STORY-01 | Phase 2 | Pending |
+| STORY-02 | Phase 2 | Pending |
+| STORY-03 | Phase 2 | Pending |
+| STORY-04 | Phase 2 | Pending |
+| TRUST-01 | Phase 2 | Pending |
+| TRUST-02 | Phase 2 | Pending |
+| TRUST-03 | Phase 2 | Pending |
+| TRUST-04 | Phase 2 | Pending |
+| TRUST-05 | Phase 2 | Pending |
+| TRUST-06 | Phase 2 | Pending |
+| ECO-01 | Phase 2 | Pending |
+| ECO-02 | Phase 2 | Pending |
+| ECO-03 | Phase 2 | Pending |
+| ECO-04 | Phase 2 | Pending |
+| SITE-01 | Phase 1 | Pending |
+| SITE-02 | Phase 1 | Pending |
+| SITE-03 | Phase 3 | Pending |
+| SITE-04 | Phase 1 | Pending |
+| SITE-05 | Phase 3 | Pending |
+| SITE-06 | Phase 1 | Pending |
+| SITE-07 | Phase 1 | Pending |
+| BRAND-01 | Phase 1 | Pending |
+| BRAND-02 | Phase 1 | Pending |
+| BRAND-03 | Phase 1 | Pending |
+| BRAND-04 | Phase 1 | Pending |
+| BRAND-05 | Phase 1 | Pending |
+| SEO-01 | Phase 3 | Pending |
+| SEO-02 | Phase 3 | Pending |
+| SEO-03 | Phase 3 | Pending |
+| SEO-04 | Phase 1 | Pending |
+| SEO-05 | Phase 3 | Pending |
+| SEO-06 | Phase 3 | Pending |
+| SEO-07 | Phase 3 | Pending |
+| SEO-08 | Phase 3 | Pending |
+| CUT-01 | Phase 3 | Pending |
+| CUT-02 | Phase 3 | Pending |
+| CUT-03 | Phase 3 | Pending |
+| CUT-04 | Phase 3 | Pending |
+| COMP-01 | Phase 1 | Pending |
+| COMP-02 | Phase 1 | Pending |
+| COMP-03 | Phase 1 | Pending |
+| COMP-04 | Phase 1 | Pending |
+| COMP-05 | Phase 1 | Pending |
+| COMP-06 | Phase 3 | Pending |
+| COMP-07 | Phase 1 | Pending |
+| SEC-01 | Phase 1 | Pending |
+| SEC-02 | Phase 1 | Pending |
+| SEC-03 | Phase 1 | Pending |
+| SEC-04 | Phase 1 | Pending |
+| SEC-05 | Phase 1 | Pending |
+| SEC-06 | Phase 1 | Pending |
+| OPS-01 | Phase 3 | Pending |
+| OPS-02 | Phase 1 | Pending |
+| OPS-03 | Phase 3 | Pending |
+| HOST-01 | Phase 1 | Pending |
+| HOST-02 | Phase 1 | Pending |
+| HOST-03 | Phase 3 | Pending |
+| HOST-04 | Phase 1 | Pending |
 
 **Coverage:**
-- v1 requirements: 64 total
-- Mapped to phases: 0 (pending roadmap creation)
-- Unmapped: 64 ⏳
+- v1 requirements: 73 total
+- Mapped to phases: 73 (100%)
+- Unmapped: 0
+- Phase 1: 42 requirements (foundation + form + pay + brand + draft compliance + form security + email/sheet hosting + JobPosting JSON-LD + alerting)
+- Phase 2: 14 requirements (story + trust signals + ecosystem)
+- Phase 3: 17 requirements (perf/a11y CI gates + SEO surface + brownfield cutover + counsel review + analytics + recruiter SOP + production deploy gating)
 
 ---
+
 *Requirements defined: 2026-05-04*
-*Last updated: 2026-05-04 after initial definition*
+*Last updated: 2026-05-04 after roadmap traceability mapping*

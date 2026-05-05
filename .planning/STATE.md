@@ -1,0 +1,126 @@
+# Project State: A2C Logistics CO. — Driver Recruiting Site
+
+**Last updated:** 2026-05-04 (after roadmap creation)
+
+## Project Reference
+
+**Core Value:** Every visiting driver — owner-op or company — leaves the site having either submitted the quick-apply form, or knowing exactly who A2C is and why "Driven to be different" is more than a tagline. **Conversion is the bar; trust is the moat.**
+
+**Current Focus:** Phase 1 — Foundation + Form + Pay Engine. Goal: launchable end-to-end conversion path (form handler with two-sink delivery + alerting, two URL-routed pay pages with real numbers, draft compliance copy).
+
+**Tech Stack (locked by research):** Astro 6 + Tailwind 4 + MDX content collections + React islands (apply form + OO/Company toggle only) + Astro Actions. Deployed on Cloudflare Pages with `@astrojs/cloudflare` adapter. Form handler runs on Pages Functions with `nodejs_compat` flag (Resend + googleapis need Node modules). Cloudflare Turnstile + honeypot + origin check + IP rate-limit. Conform + Zod for the form (single schema validates client + server). Plausible for cookieless analytics.
+
+## Current Position
+
+**Milestone:** v1 launch
+**Phase:** 1 of 3 — Foundation + Form + Pay Engine
+**Plan:** None (planning has not started)
+**Status:** Roadmap approved; awaiting `/gsd-discuss-phase 1` or `/gsd-plan-phase 1`
+
+```
+Roadmap: [X] Phase 1 [ ] Phase 2 [ ] Phase 3
+Phase 1: 0% — Plans not yet defined
+```
+
+## Roadmap Snapshot
+
+| Phase | Goal (one-line) | Requirements | Status |
+|-------|-----------------|--------------|--------|
+| 1 — Foundation + Form + Pay Engine | Launchable conversion core: two-sink form handler, brand shell, URL-routed pay pages with real numbers + JSON-LD | 42 | Not started |
+| 2 — Story + Trust + Ecosystem | Credibility surface: founder voice, named driver testimonials, real truck photos, four-brand A2C Family | 14 | Not started |
+| 3 — SEO + Brownfield Cutover + Launch Hardening | Launch gates: SEO surface, 301 map, listings update, perf/a11y CI, batched counsel review, recruiter SOP | 17 | Not started |
+
+**Coverage:** 73 / 73 v1 requirements mapped (100%) · 0 orphaned
+
+## Performance Metrics
+
+| Metric | Target | Current | Notes |
+|--------|--------|---------|-------|
+| Mobile LCP (4G) | < 2.5s | — | CI gate via Lighthouse (Phase 3) |
+| CLS | < 0.1 | — | Font fallback metric overrides set in Phase 1; verified Phase 3 |
+| INP | < 200ms | — | First-load JS budget (Phase 1) + Lighthouse CI (Phase 3) |
+| First-load JS | < 200 KB gzipped | — | CI gate Phase 1 (zero-JS-by-default Astro pages, React only on form + toggle islands) |
+| Accessibility | WCAG AA | — | axe-core regression in CI (Phase 3) |
+| Form delivery latency | < 60s end-to-end | — | Test submission → email + Sheet within 60s (Phase 1) |
+| Form silent-failure detection | < 24h | — | Daily synthetic submission verifies both sinks (Phase 1) |
+
+## Accumulated Context
+
+### Key Decisions (locked)
+
+| Decision | Rationale | Phase |
+|----------|-----------|-------|
+| Astro 6 over Next.js | 6–8 page marketing site with two interactive islands; zero-JS-by-default wins ~8–15 Lighthouse mobile points; first-party Cloudflare adapter | Locked pre-Phase 1 |
+| Cloudflare Pages over Netlify | Workers run at CDN PoP nearest the driver (truck-stop-wifi audience); higher daily free-tier function ceiling | Locked pre-Phase 1 |
+| OO ↔ Company toggle = URL-routed pages | SEO: `/pay/owner-operator` and `/pay/company` each rank for distinct queries; client-state toggles invisible to crawlers; `/pay` 308 → `/pay/owner-operator` | Locked Phase 1 |
+| Form handler runs on Node runtime, not Edge | Resend SDK + googleapis need Node-only modules; bottleneck is the email API call (300–800ms), not the runtime | Locked Phase 1 |
+| Form ships in Phase 1, not as polish | Silent form failure is the catastrophic failure mode for a single-conversion-goal site; every page CTA is a mock until the form is real | Locked Phase 1 |
+| Two-sink delivery (email REQUIRED + Sheet OPTIONAL) with durable fallback store + alerting + daily synthetic | Email failure rejects the request; Sheet failure logs + alerts but never blocks the user; idempotency key per submission | Locked Phase 1 |
+| Pay numbers as ranges with `effective` date frontmatter | Single numbers go stale and become screenshot weapons; ranges + "as of" disclosure self-identify when stale | Locked Phase 1 |
+| Counsel review batched into Phase 3 (single session) | Faster + cheaper than serializing; Phase 1 ships counsel-ready drafts so the form has a real consent block from day one | Locked Phase 3 |
+| Brownfield 301 redirects ship in Phase 3 (cutover phase) | Lost link equity from week-one 404s is irrecoverable; redirects + GMB updates + GSC monitoring all live in cutover | Locked Phase 3 |
+| Lighthouse + WCAG AA CI gates in Phase 3 | Per SUMMARY's Phase 3 scope — perf and a11y enforced once content is stable; failing budgets on half-built pages waste signal | Locked Phase 3 |
+| MDX-in-repo, no headless CMS | Updates infrequent; PR-based editing is sufficient; TinaCMS deferrable as a non-breaking add later | Locked pre-Phase 1 |
+| Plausible (cookieless) over GA4 | Avoids cookie-banner cost; matches transparent / driver-first posture | Locked Phase 3 |
+| Wholesale rebuild, not migration | Existing site mixes shipper + driver audiences across 6 pages; no clean migration path | Locked pre-Phase 1 |
+
+### Open Items / Content-Readiness Blockers
+
+**Phase 1 blockers:**
+- [ ] Real CPM ranges, %-of-gross splits, fast-pay terms, fuel discount, sign-on bonus, detention/stop/layover pay, OO deduction line items — A2C operations to supply
+- [ ] Nevis Bold web license sourced (or substitute display font selected with brand-book footnote)
+- [ ] Resend domain SPF/DKIM/DMARC configured for sending domain (e.g. `mail.a2clogisticsco.com`)
+- [ ] Recruiter phone number (`tel:` + SMS-capable, single tracked number) confirmed
+- [ ] Google Sheet (or Airtable base) created with service-account access
+- [ ] Choice between Sheet vs Airtable as the OPTIONAL sink (architecture supports both behind same `LeadSink` interface; recommend Sheets to start)
+- [ ] Durable fallback store choice (R2 vs KV vs second sink)
+
+**Phase 2 blockers:**
+- [ ] Founder photo + signed letter or quote (PROJECT confirms ready now)
+- [ ] 2–3 named driver testimonials with photos + specific quotes
+- [ ] Half-day truck-photo yard shoot at Lincoln yard scheduled
+- [ ] Sister-brand logos + status (live URL or "coming soon") for LTTR, LTS, DP, OTTS
+
+**Phase 3 blockers:**
+- [ ] Counsel availability for single batched review session (privacy + SMS terms + EEO + form fields + consent block)
+- [ ] External-listings ownership confirmed (GMB, FMCSA SAFER, Indeed, Trucking Truth, AllTruckJobs, LinkedIn, FB, IG, recruiter email signatures)
+- [ ] Google Search Console ownership verified on `a2clogisticsco.com` (DNS TXT) before launch
+
+### Active TODOs
+
+- [ ] Run `/gsd-discuss-phase 1` (recommended — `discuss_mode: discuss` in config) or `/gsd-plan-phase 1`
+
+### Blockers
+
+None at the planning stage. Content-readiness blockers above are real but do not block planning — they will block specific plan execution within each phase.
+
+## Session Continuity
+
+**Files of record:**
+- `.planning/PROJECT.md` — core value, constraints, key decisions
+- `.planning/REQUIREMENTS.md` — 73 v1 requirements with traceability table (now phase-mapped)
+- `.planning/ROADMAP.md` — 3-phase structure with success criteria
+- `.planning/research/SUMMARY.md` — research synthesis (5-phase suggestion; phases 4/5 deferred to v2)
+- `.planning/research/STACK.md` — Astro 6 + Cloudflare Pages stack rationale
+- `.planning/research/ARCHITECTURE.md` — 5-wave build order (form ships early in Wave 3, parallel with sections)
+- `.planning/research/PITFALLS.md` — 20 numbered pitfalls + launch-gate checklist
+- `.planning/config.json` — granularity: standard, mode: yolo, parallelization: true
+
+**Existing codebase (to be replaced wholesale):**
+- Vite 8 + React 19 + Tailwind 4 + React Router 7 + framer-motion + base-ui/shadcn-style components
+- 6 pages (Home, About, Services, Fleet, DriveWithUs, Contact) — mixed shipper + driver audience
+- Treat as greenfield; some salvageable copy in `src/pages/About.jsx` (`"Built by Drivers, for Drivers"`) — see PITFALLS Pitfall 19 (old-site copy bleed) for the audience-tagging rule before re-using
+
+**Brand assets** (in `/Users/alexandercostea/Downloads/`):
+- `A2C Brand Development_Final Delivery (1).pdf` (14-page brand system)
+- `A2C Messaging Framework.docx`
+- `A2C_Snaphot_Final (1).pdf`
+- `A2C Brand Ecosystem (1).pdf`
+- Tagline: "Driven to be different."
+- Visual: Nevis Bold (headlines) / Avenir (body); palette `#FFFFFF / #000000 / #EF392C / #D9D9D9`
+
+**Next command:** `/gsd-discuss-phase 1` (recommended given Phase 1's high novel-integration density: Cloudflare Pages Functions + nodejs_compat + Astro Actions + Resend + Sheets service-account + Turnstile server-verify + durable fallback store) or `/gsd-plan-phase 1` to skip directly to planning.
+
+---
+
+*State initialized: 2026-05-04 after roadmap creation*
