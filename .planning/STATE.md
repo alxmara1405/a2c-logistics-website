@@ -1,3 +1,16 @@
+---
+gsd_state_version: 1.0
+milestone: v1.0
+milestone_name: milestone
+status: Phase 1 context gathered (2026-05-05); ready for /gsd-plan-phase 1
+last_updated: "2026-05-05T05:05:11.639Z"
+progress:
+  total_phases: 3
+  completed_phases: 0
+  total_plans: 0
+  completed_plans: 0
+---
+
 # Project State: A2C Logistics CO. — Driver Recruiting Site
 
 **Last updated:** 2026-05-04 (after roadmap creation)
@@ -15,7 +28,7 @@
 **Milestone:** v1 launch
 **Phase:** 1 of 3 — Foundation + Form + Pay Engine
 **Plan:** None (planning has not started)
-**Status:** Roadmap approved; awaiting `/gsd-discuss-phase 1` or `/gsd-plan-phase 1`
+**Status:** Phase 1 context gathered (2026-05-05); ready for /gsd-plan-phase 1
 
 ```
 Roadmap: [X] Phase 1 [ ] Phase 2 [ ] Phase 3
@@ -67,6 +80,7 @@ Phase 1: 0% — Plans not yet defined
 ### Open Items / Content-Readiness Blockers
 
 **Phase 1 blockers:**
+
 - [ ] Real CPM ranges, %-of-gross splits, fast-pay terms, fuel discount, sign-on bonus, detention/stop/layover pay, OO deduction line items — A2C operations to supply
 - [ ] Nevis Bold web license sourced (or substitute display font selected with brand-book footnote)
 - [ ] Resend domain SPF/DKIM/DMARC configured for sending domain (e.g. `mail.a2clogisticsco.com`)
@@ -76,12 +90,14 @@ Phase 1: 0% — Plans not yet defined
 - [ ] Durable fallback store choice (R2 vs KV vs second sink)
 
 **Phase 2 blockers:**
+
 - [ ] Founder photo + signed letter or quote (PROJECT confirms ready now)
 - [ ] 2–3 named driver testimonials with photos + specific quotes
 - [ ] Half-day truck-photo yard shoot at Lincoln yard scheduled
 - [ ] Sister-brand logos + status (live URL or "coming soon") for LTTR, LTS, DP, OTTS
 
 **Phase 3 blockers:**
+
 - [ ] Counsel availability for single batched review session (privacy + SMS terms + EEO + form fields + consent block)
 - [ ] External-listings ownership confirmed (GMB, FMCSA SAFER, Indeed, Trucking Truth, AllTruckJobs, LinkedIn, FB, IG, recruiter email signatures)
 - [ ] Google Search Console ownership verified on `a2clogisticsco.com` (DNS TXT) before launch
@@ -97,6 +113,7 @@ None at the planning stage. Content-readiness blockers above are real but do not
 ## Session Continuity
 
 **Files of record:**
+
 - `.planning/PROJECT.md` — core value, constraints, key decisions
 - `.planning/REQUIREMENTS.md` — 73 v1 requirements with traceability table (now phase-mapped)
 - `.planning/ROADMAP.md` — 3-phase structure with success criteria
@@ -107,11 +124,13 @@ None at the planning stage. Content-readiness blockers above are real but do not
 - `.planning/config.json` — granularity: standard, mode: yolo, parallelization: true
 
 **Existing codebase (to be replaced wholesale):**
+
 - Vite 8 + React 19 + Tailwind 4 + React Router 7 + framer-motion + base-ui/shadcn-style components
 - 6 pages (Home, About, Services, Fleet, DriveWithUs, Contact) — mixed shipper + driver audience
 - Treat as greenfield; some salvageable copy in `src/pages/About.jsx` (`"Built by Drivers, for Drivers"`) — see PITFALLS Pitfall 19 (old-site copy bleed) for the audience-tagging rule before re-using
 
 **Brand assets** (in `/Users/alexandercostea/Downloads/`):
+
 - `A2C Brand Development_Final Delivery (1).pdf` (14-page brand system)
 - `A2C Messaging Framework.docx`
 - `A2C_Snaphot_Final (1).pdf`
