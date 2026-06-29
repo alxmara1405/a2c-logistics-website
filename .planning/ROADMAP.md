@@ -194,7 +194,15 @@ until the rebuild. Domain migration to `a2clogisticsco.com` is deferred.
 
 **Depends on:** Nothing (operates on the existing committed React/Vite codebase).
 
-**Requirements** (interim-scoped, `INT-` prefix — distinct from the 73 v1.0 rebuild requirements):
+**Requirements** (11):
+- SEO & crawlability: INT-SEO-01, INT-SEO-02, INT-SEO-03, INT-SEO-04, INT-SEO-05, INT-SEO-06, INT-SEO-07
+- UX & content: INT-UX-01, INT-UX-02
+- Accessibility: INT-A11Y-01
+- Performance: INT-PERF-01
+
+These are interim-scoped (`INT-` prefix), distinct from the 73 v1.0 rebuild requirements.
+
+**Requirement details:**
 - INT-SEO-01 — Prerender all 6 routes to static HTML at build (react-snap or vite-react-ssg) so crawlers/link-scrapers receive real markup, not an empty `#root`.
 - INT-SEO-02 — Unique per-page `<title>`, meta description, and self-canonical on every route (React 19 native document metadata).
 - INT-SEO-03 — `JobPosting` JSON-LD on Drive With Us (pay as ranges marked "as of {date}" if real numbers unavailable; avoids stale-number trap).
