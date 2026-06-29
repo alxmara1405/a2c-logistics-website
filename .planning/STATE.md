@@ -29,8 +29,8 @@ progress:
 
 **Active milestone:** v0.5-interim — Current-Site SEO & Polish (decided 2026-06-29; see `notes/2026-06-29-interim-vs-rebuild-decision.md`)
 **Active phase:** Phase 4 — Interim SEO Crawlability + Structured Data + Polish (current-site track; numbered 4 for tooling, belongs to v0.5-interim)
-**Plan:** None yet (next: `/gsd-plan-phase 4`)
-**Status:** READY TO PLAN — operates on the existing committed React/Vite site; no blocked inputs.
+**Plan:** 6 plans across 3 waves (+ Wave 0 setup folded into 04-01) — plan-checker verdict: PASSED. Next: `/gsd:execute-phase 4`
+**Status:** PLANNED — ready to execute. Two content-readiness gates will pause for the user: Formspree live-submission check (04-02) and `@fontsource-variable/inter` legitimacy check (04-05).
 
 > **v1.0 Astro rebuild (Phases 1–3 below): PAUSED, not abandoned.** Still BLOCKED on user setup
 > (Squarespace→Cloudflare nameserver switch + 7 content/infra blockers — see PROJECT.md hosting/DNS
@@ -49,7 +49,7 @@ Paused: v1.0 Rebuild — [ ] Phase 1 [ ] Phase 2 [ ] Phase 3 (blocked on user se
 | 1 — Foundation + Form + Pay Engine | Launchable conversion core: two-sink form handler, brand shell, URL-routed pay pages with real numbers + JSON-LD | 42 | Not started |
 | 2 — Story + Trust + Ecosystem | Credibility surface: founder voice, named driver testimonials, real truck photos, four-brand A2C Family | 14 | Not started |
 | 3 — SEO + Brownfield Cutover + Launch Hardening | Launch gates: SEO surface, 301 map, listings update, perf/a11y CI, batched counsel review, recruiter SOP | 17 | Paused (v1.0 rebuild) |
-| 4 — Interim SEO + Polish (current-site track) | **ACTIVE (v0.5-interim):** prerender + per-page meta + JobPosting/LocalBusiness JSON-LD + sitemap/robots/OG + copy/a11y/LCP on the existing React site | 11 (INT-*) | Ready to plan |
+| 4 — Interim SEO + Polish (current-site track) | **ACTIVE (v0.5-interim):** prerender + per-page meta + JobPosting/LocalBusiness JSON-LD + sitemap/robots/OG + copy/a11y/LCP on the existing React site | 11 (INT-*) | Planned (6 plans, checker PASSED) — ready to execute |
 
 **Coverage:** 73 / 73 v1 requirements mapped (100%) · 0 orphaned
 

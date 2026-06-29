@@ -1,8 +1,8 @@
 ---
 phase: 4
 slug: interim-seo-crawlability-structured-data-polish-current-site
-status: draft
-nyquist_compliant: false
+status: approved
+nyquist_compliant: true
 wave_0_complete: false
 created: 2026-06-29
 ---
@@ -84,6 +84,6 @@ created: 2026-06-29
 - [ ] Wave 0 covers all MISSING references (Vitest install + prerender script + test file)
 - [ ] No watch-mode flags
 - [ ] Feedback latency < 60s
-- [ ] `nyquist_compliant: true` set in frontmatter (set by planner once tasks map to verifications)
+- [x] `nyquist_compliant: true` set in frontmatter (all tasks map to automated verify or a flagged manual/Wave-0 gate)
 
-**Approval:** pending
+**Approval:** approved 2026-06-29 (gsd-plan-checker: PLAN CHECK PASSED)
