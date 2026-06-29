@@ -163,3 +163,58 @@ The research SUMMARY proposed a 5-phase structure; phases 4 (post-launch differe
 ---
 
 *Roadmap created: 2026-05-04*
+
+---
+
+# Interim Milestone (v0.5) — Current-Site SEO & Polish
+
+**Added:** 2026-06-29 · **Decision record:** `.planning/notes/2026-06-29-interim-vs-rebuild-decision.md`
+
+**Why this exists:** The v1.0 Astro rebuild (Phases 1–3 above) is **paused** — blocked ~2 months
+on real-world inputs only A2C can supply (pay numbers, nameserver switch, Nevis license, Resend DKIM,
+recruiter phone, Google Sheet, counsel). Rather than sit blocked while quick wins go unshipped, this
+interim milestone ships **unblocked SEO + polish improvements on the existing Vite/React site**,
+staying on GitHub Pages. SEO content + structured data + copy produced here **transfer directly into
+the rebuild** when it resumes.
+
+**Hard constraint:** GitHub Pages is **static-only** — no real form backend. Forms stay on Formspree
+until the rebuild. Domain migration to `a2clogisticsco.com` is deferred.
+
+**Primary audience:** Drivers (owner-operators + company). SEO = local + job-posting intent
+("CDL Class A driver jobs Lincoln NE", Google for Jobs).
+
+## Interim Phase: SEO Crawlability + Structured Data + Polish
+
+**Goal:** Make the current site fully crawlable and richly indexed for driver-recruitment search,
+and fix the highest-leverage usability/perf issues — without leaving GitHub Pages and without any
+of the rebuild's blocked inputs.
+
+**Depends on:** Nothing (operates on the existing committed React/Vite codebase).
+
+**Requirements** (interim-scoped, `INT-` prefix — distinct from the 73 v1.0 rebuild requirements):
+- INT-SEO-01 — Prerender all 6 routes to static HTML at build (react-snap or vite-react-ssg) so crawlers/link-scrapers receive real markup, not an empty `#root`.
+- INT-SEO-02 — Unique per-page `<title>`, meta description, and self-canonical on every route (React 19 native document metadata).
+- INT-SEO-03 — `JobPosting` JSON-LD on Drive With Us (pay as ranges marked "as of {date}" if real numbers unavailable; avoids stale-number trap).
+- INT-SEO-04 — `Organization`/`LocalBusiness` JSON-LD on the home route + consistent NAP (name, address, phone) across footer/Contact.
+- INT-SEO-05 — Build-generated `sitemap.xml` + `robots.txt` in `public/`.
+- INT-SEO-06 — Open Graph + Twitter Card tags per route + a static OG share image.
+- INT-SEO-07 — Keyword-aware copy: weave driver-job search intent into H1s/section headings naturally (no keyword stuffing).
+- INT-UX-01 — Verify both Formspree endpoints (`mvzvrleo` contact, `mzdkgolq` apply) are real, owned, and delivering; document or fix.
+- INT-UX-02 — Copy cleanup (e.g. replace "Q&A Form" heading; tighten CTA labels).
+- INT-A11Y-01 — Accessibility pass: gray-text contrast to WCAG AA, visible focus states, meaningful image alt text.
+- INT-PERF-01 — Hero LCP optimization (responsive/compressed hero image, preload, no CLS).
+
+**Success Criteria** (what must be TRUE):
+  1. `curl` of each of the 6 production route URLs (no JS execution) returns fully-rendered HTML containing that page's headings and body copy — not an empty `#root` shell.
+  2. Each route serves a distinct `<title>` and meta description and a self-referential `<link rel="canonical">`; viewing source (not devtools) shows them present in the static HTML.
+  3. The Drive With Us route's `JobPosting` JSON-LD validates with zero errors in Google's Rich Results Test, and the home route's `Organization`/`LocalBusiness` JSON-LD validates; NAP is byte-identical across footer and Contact.
+  4. `sitemap.xml` (listing all 6 public routes with the GitHub Pages base path) and `robots.txt` (referencing the sitemap) are served at the site root; sharing any route URL renders an OG title + description + image preview.
+  5. Both Formspree endpoints are confirmed live (a real test submission arrives) or replaced; the "Q&A Form" heading and any placeholder copy are gone.
+  6. An axe-core / Lighthouse accessibility pass shows no WCAG AA contrast failures on body/gray text, all interactive elements have visible focus states, and content images have descriptive alt text; hero image is the LCP element with LCP measured (target < 2.5s on throttled mobile) and no layout shift.
+
+**Plans**: TBD (`/gsd-plan-phase`)
+**UI hint**: yes (a11y + LCP + copy touch the rendered UI)
+
+---
+
+*Interim milestone added: 2026-06-29*

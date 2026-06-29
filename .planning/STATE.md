@@ -1,9 +1,10 @@
 ---
 gsd_state_version: 1.0
-milestone: v1.0
-milestone_name: milestone
-status: BLOCKED on user setup — see PROJECT.md hosting/DNS section + plans/01-00-foundation Task 0.3 checkpoint. Squarespace→Cloudflare nameserver switch + 7 other content/infra blockers required before /gsd-execute-phase 1.
-last_updated: "2026-05-05T15:31:33.798Z"
+milestone: v0.5-interim
+milestone_name: Current-Site SEO & Polish
+paused_milestone: v1.0
+status: ACTIVE — interim milestone (current-site SEO + polish) ready to plan; v1.0 Astro rebuild PAUSED, blocked on user setup (see Current Position).
+last_updated: "2026-06-29T00:00:00.000Z"
 progress:
   total_phases: 3
   completed_phases: 0
@@ -26,14 +27,19 @@ progress:
 
 ## Current Position
 
-**Milestone:** v1 launch
-**Phase:** 1 of 3 — Foundation + Form + Pay Engine
-**Plan:** None (planning has not started)
-**Status:** BLOCKED on user setup — see PROJECT.md hosting/DNS section + plans/01-00-foundation Task 0.3 checkpoint. Squarespace→Cloudflare nameserver switch + 7 other content/infra blockers required before /gsd-execute-phase 1.
+**Active milestone:** v0.5-interim — Current-Site SEO & Polish (decided 2026-06-29; see `notes/2026-06-29-interim-vs-rebuild-decision.md`)
+**Active phase:** Interim Phase — SEO Crawlability + Structured Data + Polish
+**Plan:** None yet (next: `/gsd-plan-phase`)
+**Status:** READY TO PLAN — operates on the existing committed React/Vite site; no blocked inputs.
+
+> **v1.0 Astro rebuild (Phases 1–3 below): PAUSED, not abandoned.** Still BLOCKED on user setup
+> (Squarespace→Cloudflare nameserver switch + 7 content/infra blockers — see PROJECT.md hosting/DNS
+> section + plans/01-00-foundation Task 0.3 checkpoint). Resume once those clear. The interim
+> milestone runs in the meantime and its SEO/content work transfers into the rebuild.
 
 ```
-Roadmap: [X] Phase 1 [ ] Phase 2 [ ] Phase 3
-Phase 1: 0% — Plans not yet defined
+Active: Interim Milestone (v0.5) — [ ] SEO + Polish phase (planning not started)
+Paused: v1.0 Rebuild — [ ] Phase 1 [ ] Phase 2 [ ] Phase 3 (blocked on user setup)
 ```
 
 ## Roadmap Snapshot
