@@ -26,6 +26,7 @@ Why three phases (not more):
 - [ ] **Phase 1: Foundation + Form + Pay Engine** — Launchable conversion core (Astro on Cloudflare Pages, form handler with two-sink delivery + alerting, two URL-routed pay pages with real numbers, draft compliance copy)
 - [ ] **Phase 2: Story + Trust + Ecosystem** — Credibility content layer (founder story, driver testimonials, equipment with real truck photos, A2C Family ecosystem page)
 - [ ] **Phase 3: SEO + Brownfield Cutover + Launch Hardening** — Launch-gate work (sitemap, JSON-LD, curated SEO landing pages, 301 redirect map, external listings update, counsel review, performance/a11y CI passes, recruiter SOP)
+- [ ] **Phase 4: Interim — SEO + Polish (current-site track)** — *Separate Interim Milestone v0.5, runs NOW while 1–3 are paused.* Prerender + per-page meta + JobPosting/LocalBusiness JSON-LD + sitemap/robots/OG + copy/a11y/LCP on the existing React site (GitHub Pages, Formspree). See detail under "Interim Milestone (v0.5)" below.
 
 ## Phase Details
 
@@ -158,7 +159,7 @@ These are real-world inputs the build cannot fabricate. Surfaced here so each ph
 
 ## Out of v1 Scope (deferred — see REQUIREMENTS.md `## v2 Requirements`)
 
-The research SUMMARY proposed a 5-phase structure; phases 4 (post-launch differentiators: pay calculator, founder video, settlement download, apply-by-text, lane map, lite-youtube embed) and 5 (ATS integration: Tenstreet/DriverReach) are intentionally NOT in this v1 roadmap. Each is tracked under `## v2 Requirements` in REQUIREMENTS.md (`DIFF2-*`, `ATS2-*`, `OPS2-*`, `SEO2-*`) and requires a separate decision-to-promote when the operational triggers (60–90 day pay stability, application volume, content-editing pain, etc.) are met.
+The research SUMMARY proposed a 5-phase structure; two later tracks — post-launch differentiators (pay calculator, founder video, settlement download, apply-by-text, lane map, lite-youtube embed) and ATS integration (Tenstreet/DriverReach) — are intentionally NOT in this v1 roadmap. (Note: "Phase 4" in this roadmap now refers to the Interim Milestone v0.5 track, unrelated to these deferred v2 tracks.) Each is tracked under `## v2 Requirements` in REQUIREMENTS.md (`DIFF2-*`, `ATS2-*`, `OPS2-*`, `SEO2-*`) and requires a separate decision-to-promote when the operational triggers (60–90 day pay stability, application volume, content-editing pain, etc.) are met.
 
 ---
 
@@ -183,11 +184,13 @@ until the rebuild. Domain migration to `a2clogisticsco.com` is deferred.
 **Primary audience:** Drivers (owner-operators + company). SEO = local + job-posting intent
 ("CDL Class A driver jobs Lincoln NE", Google for Jobs).
 
-## Interim Phase: SEO Crawlability + Structured Data + Polish
+### Phase 4: Interim — SEO Crawlability + Structured Data + Polish (current-site track)
 
-**Goal:** Make the current site fully crawlable and richly indexed for driver-recruitment search,
-and fix the highest-leverage usability/perf issues — without leaving GitHub Pages and without any
-of the rebuild's blocked inputs.
+> **Tracking note:** Phase 4 belongs to the **Interim Milestone (v0.5)**, not the v1.0 rebuild.
+> It is numbered 4 only so GSD tooling (`plan-phase`, `execute-phase`) can address it. It runs
+> NOW on the existing React site; Phases 1–3 (the v1.0 Astro rebuild) remain paused.
+
+**Goal:** Make the current React site fully crawlable and richly indexed for driver-recruitment search (local + job-posting intent), and fix the highest-leverage usability/perf issues — all without leaving GitHub Pages and without any of the v1.0 rebuild's blocked inputs.
 
 **Depends on:** Nothing (operates on the existing committed React/Vite codebase).
 
