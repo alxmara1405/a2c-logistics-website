@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v0.5-interim
 milestone_name: Current-Site SEO & Polish
 status: executing
-last_updated: "2026-07-01T18:29:53.898Z"
+last_updated: "2026-07-01T18:55:07.152Z"
 progress:
   total_phases: 4
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 12
-  completed_plans: 5
-  percent: 42
+  completed_plans: 6
+  percent: 25
 ---
 
 # Project State: A2C Logistics CO. — Driver Recruiting Site
@@ -26,13 +26,13 @@ progress:
 
 ## Current Position
 
-Phase: 04 (interim-seo-crawlability-structured-data-polish-current-site) — EXECUTING
-Plan: 6 of 6 (04-01 prerender-infrastructure, 04-02 formspree-endpoint-verification, 04-03 seo-components-structured-data, 04-04 sitemap-robots-og-image, 04-05 lcp-fonts-accessibility COMPLETE ✅)
+Phase: 04 (interim-seo-crawlability-structured-data-polish-current-site) — COMPLETE ✅ (all 6 plans done)
+Plan: 6 of 6 (04-01 prerender-infrastructure, 04-02 formspree-endpoint-verification, 04-03 seo-components-structured-data, 04-04 sitemap-robots-og-image, 04-05 lcp-fonts-accessibility, 04-06 remaining-metadata-copy-cleanup COMPLETE ✅)
 **Active milestone:** v0.5-interim — Current-Site SEO & Polish (decided 2026-06-29; see `notes/2026-06-29-interim-vs-rebuild-decision.md`)
 **Active phase:** Phase 4 — Interim SEO Crawlability + Structured Data + Polish (current-site track; numbered 4 for tooling, belongs to v0.5-interim)
 **Plan:** 6 plans across 3 waves (+ Wave 0 setup folded into 04-01) — plan-checker verdict: PASSED. 04-01 + 04-02 + 04-03 + 04-04 + 04-05 done — all 6 plans complete.
 **Status:** Executing Phase 04 — crawlability foundation (INT-SEO-01) + Formspree live (INT-UX-01) + structured data / per-page metadata / Footer NAP (INT-SEO-02/03/04/07) + sitemap/robots/OG image (INT-SEO-05/06) + LCP/fonts/a11y polish (INT-PERF-01, INT-A11Y-01) baked into static HTML
-**Last session:** 2026-07-01 — completed 04-05-PLAN.md (lcp-fonts-accessibility). Self-hosted Inter via @fontsource-variable/inter (removed render-blocking Google Fonts @import); base-safe Nevis @font-face (moved to src/, Vite-fingerprinted); hero LCP fetchpriority + compressed 304KB→197KB with CLS=0; added --color-a2c-red-ink (#D42A1E) for AA contrast on small red text + buttons (brand #EF392C accent unchanged); global :focus-visible ring; content-image alt + labeled Select trigger. axe-core wcag2a/2aa: 0 violations across all 6 routes; Lighthouse perf 84 / LCP 3.6s / CLS 0; full vitest 36/36 green. Stopped at: plan complete. Resume file: none.
+**Last session:** 2026-07-01 — completed 04-06-PLAN.md (remaining-metadata-copy-cleanup), the final Phase 4 plan. Added `<Seo>` (unique title/description/self-canonical + OG/Twitter) to About, Services, Fleet, Contact — all 6 routes now serve distinct, self-consistent metadata in static HTML. Cleaned Contact copy: "Q&A Form" heading → "Send Us a Message"; tightened two vague "Get in Touch" CTAs → "Contact Our Team" (NAP + Formspree untouched). New tests/metadata.test.js (32 assertions). Rule 1 fix in scripts/prerender.mjs: deep-link routes were inheriting Home's + the shell's metadata (3 titles + conflicting canonicals per route, silently canonicalizing every deep link to the homepage since 04-03) — fixed via deferred snapshot writes + in-page <head> sanitation. Full vitest 68/68 green. **Phase 04 COMPLETE.** Stopped at: phase complete. Resume file: none.
 
 > **v1.0 Astro rebuild (Phases 1–3 below): PAUSED, not abandoned.** Still BLOCKED on user setup
 > (Squarespace→Cloudflare nameserver switch + 7 content/infra blockers — see PROJECT.md hosting/DNS

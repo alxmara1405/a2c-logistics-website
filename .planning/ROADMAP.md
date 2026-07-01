@@ -26,7 +26,7 @@ Why three phases (not more):
 - [ ] **Phase 1: Foundation + Form + Pay Engine** — Launchable conversion core (Astro on Cloudflare Pages, form handler with two-sink delivery + alerting, two URL-routed pay pages with real numbers, draft compliance copy)
 - [ ] **Phase 2: Story + Trust + Ecosystem** — Credibility content layer (founder story, driver testimonials, equipment with real truck photos, A2C Family ecosystem page)
 - [ ] **Phase 3: SEO + Brownfield Cutover + Launch Hardening** — Launch-gate work (sitemap, JSON-LD, curated SEO landing pages, 301 redirect map, external listings update, counsel review, performance/a11y CI passes, recruiter SOP)
-- [ ] **Phase 4: Interim — SEO + Polish (current-site track)** — *Separate Interim Milestone v0.5, runs NOW while 1–3 are paused.* Prerender + per-page meta + JobPosting/LocalBusiness JSON-LD + sitemap/robots/OG + copy/a11y/LCP on the existing React site (GitHub Pages, Formspree). See detail under "Interim Milestone (v0.5)" below.
+- [x] **Phase 4: Interim — SEO + Polish (current-site track)** — *Separate Interim Milestone v0.5, runs NOW while 1–3 are paused.* Prerender + per-page meta + JobPosting/LocalBusiness JSON-LD + sitemap/robots/OG + copy/a11y/LCP on the existing React site (GitHub Pages, Formspree). See detail under "Interim Milestone (v0.5)" below. (completed 2026-07-01)
 
 ## Phase Details
 
@@ -116,7 +116,7 @@ Why three phases (not more):
 | 1. Foundation + Form + Pay Engine | 0/0 | Not started | - |
 | 2. Story + Trust + Ecosystem | 0/0 | Not started | - |
 | 3. SEO + Brownfield Cutover + Launch Hardening | 0/0 | Not started | - |
-| 4. Interim — SEO + Polish (current-site) | 5/6 | In Progress|  |
+| 4. Interim — SEO + Polish (current-site) | 6/6 | Complete   | 2026-07-01 |
 
 ## Coverage Summary
 
@@ -230,7 +230,7 @@ These are interim-scoped (`INT-` prefix), distinct from the 73 v1.0 rebuild requ
 - [x] 04-03-PLAN.md — SEO components + structured data: Seo.jsx, schema.js, Footer NAP, Home/DriveWithUs JSON-LD (INT-SEO-02/03/04/06/07) [Wave 2]
 - [x] 04-04-PLAN.md — Sitemap, robots, OG image static assets (INT-SEO-05/06) [Wave 2]
 - [x] 04-05-PLAN.md — Hero LCP + self-hosted fonts + WCAG AA accessibility (INT-PERF-01, INT-A11Y-01) [Wave 2, checkpoint]
-- [ ] 04-06-PLAN.md — Remaining page metadata + copy cleanup (Q&A heading, CTA labels) (INT-SEO-02/06/07, INT-UX-02) [Wave 3]
+- [x] 04-06-PLAN.md — Remaining page metadata + copy cleanup (Q&A heading, CTA labels) (INT-SEO-02/06/07, INT-UX-02) [Wave 3]
 **UI hint**: yes (a11y + LCP + copy touch the rendered UI)
 
 ---
