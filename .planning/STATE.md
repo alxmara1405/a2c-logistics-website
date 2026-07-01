@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v0.5-interim
 milestone_name: Current-Site SEO & Polish
 status: executing
-last_updated: "2026-07-01T18:07:36.140Z"
+last_updated: "2026-07-01T18:11:25.884Z"
 progress:
   total_phases: 4
   completed_phases: 0
   total_plans: 12
-  completed_plans: 3
-  percent: 25
+  completed_plans: 4
+  percent: 33
 ---
 
 # Project State: A2C Logistics CO. — Driver Recruiting Site
@@ -27,12 +27,12 @@ progress:
 ## Current Position
 
 Phase: 04 (interim-seo-crawlability-structured-data-polish-current-site) — EXECUTING
-Plan: 4 of 6 (04-01 prerender-infrastructure, 04-02 formspree-endpoint-verification, 04-03 seo-components-structured-data COMPLETE ✅)
+Plan: 5 of 6 (04-01 prerender-infrastructure, 04-02 formspree-endpoint-verification, 04-03 seo-components-structured-data, 04-04 sitemap-robots-og-image COMPLETE ✅)
 **Active milestone:** v0.5-interim — Current-Site SEO & Polish (decided 2026-06-29; see `notes/2026-06-29-interim-vs-rebuild-decision.md`)
 **Active phase:** Phase 4 — Interim SEO Crawlability + Structured Data + Polish (current-site track; numbered 4 for tooling, belongs to v0.5-interim)
-**Plan:** 6 plans across 3 waves (+ Wave 0 setup folded into 04-01) — plan-checker verdict: PASSED. 04-01 + 04-02 + 04-03 done; next plan ready to execute.
-**Status:** Executing Phase 04 — crawlability foundation (INT-SEO-01) + Formspree live (INT-UX-01) + structured data / per-page metadata / Footer NAP (INT-SEO-02/03/04/07) baked into static HTML
-**Last session:** 2026-07-01 — completed 04-03-PLAN.md (seo-components-structured-data). Seo component + JobPosting/LocalBusiness JSON-LD + Footer NAP + keyword-aware titles/H1 baked into dist; tests 30/30 green. Open content deps: real ZIP + real driver pay range (placeholders flagged in schema.js). Phase-gate TODO: Google Rich Results Test on both routes. Stopped at: plan complete. Resume file: none.
+**Plan:** 6 plans across 3 waves (+ Wave 0 setup folded into 04-01) — plan-checker verdict: PASSED. 04-01 + 04-02 + 04-03 + 04-04 done; next plan ready to execute.
+**Status:** Executing Phase 04 — crawlability foundation (INT-SEO-01) + Formspree live (INT-UX-01) + structured data / per-page metadata / Footer NAP (INT-SEO-02/03/04/07) + sitemap/robots/OG image (INT-SEO-05/06) baked into static HTML
+**Last session:** 2026-07-01 — completed 04-04-PLAN.md (sitemap-robots-og-image). public/sitemap.xml (6 absolute route URLs) + public/robots.txt (sitemap ref) + public/og-image.jpg (1200x630 via sharp) + tests/static-assets.test.js; full suite 36/36 green. DEPLOY CAVEAT: project-path robots.txt is NOT honored site-wide (RESEARCH Pitfall 4) — submit sitemap.xml directly in Google Search Console. Phase-gate TODO: Google Rich Results Test on both routes + social-share debugger OG preview. Stopped at: plan complete. Resume file: none.
 
 > **v1.0 Astro rebuild (Phases 1–3 below): PAUSED, not abandoned.** Still BLOCKED on user setup
 > (Squarespace→Cloudflare nameserver switch + 7 content/infra blockers — see PROJECT.md hosting/DNS
