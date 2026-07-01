@@ -2,15 +2,14 @@
 gsd_state_version: 1.0
 milestone: v0.5-interim
 milestone_name: Current-Site SEO & Polish
-paused_milestone: v1.0
-status: ACTIVE — interim milestone (current-site SEO + polish) ready to plan; v1.0 Astro rebuild PAUSED, blocked on user setup (see Current Position).
-last_updated: "2026-06-29T00:00:00.000Z"
+status: executing
+last_updated: "2026-07-01T17:55:16.242Z"
 progress:
-  total_phases: 3
+  total_phases: 4
   completed_phases: 0
-  total_plans: 6
-  completed_plans: 0
-  percent: 0
+  total_plans: 12
+  completed_plans: 1
+  percent: 8
 ---
 
 # Project State: A2C Logistics CO. — Driver Recruiting Site
@@ -21,16 +20,19 @@ progress:
 
 **Core Value:** Every visiting driver — owner-op or company — leaves the site having either submitted the quick-apply form, or knowing exactly who A2C is and why "Driven to be different" is more than a tagline. **Conversion is the bar; trust is the moat.**
 
-**Current Focus:** Phase 1 — Foundation + Form + Pay Engine. Goal: launchable end-to-end conversion path (form handler with two-sink delivery + alerting, two URL-routed pay pages with real numbers, draft compliance copy).
+**Current Focus:** Phase 04 — interim-seo-crawlability-structured-data-polish-current-site
 
 **Tech Stack (locked by research):** Astro 6 + Tailwind 4 + MDX content collections + React islands (apply form + OO/Company toggle only) + Astro Actions. Deployed on Cloudflare Pages with `@astrojs/cloudflare` adapter. Form handler runs on Pages Functions with `nodejs_compat` flag (Resend + googleapis need Node modules). Cloudflare Turnstile + honeypot + origin check + IP rate-limit. Conform + Zod for the form (single schema validates client + server). Plausible for cookieless analytics.
 
 ## Current Position
 
+Phase: 04 (interim-seo-crawlability-structured-data-polish-current-site) — EXECUTING
+Plan: 2 of 6 (04-01 prerender-infrastructure COMPLETE ✅)
 **Active milestone:** v0.5-interim — Current-Site SEO & Polish (decided 2026-06-29; see `notes/2026-06-29-interim-vs-rebuild-decision.md`)
 **Active phase:** Phase 4 — Interim SEO Crawlability + Structured Data + Polish (current-site track; numbered 4 for tooling, belongs to v0.5-interim)
-**Plan:** 6 plans across 3 waves (+ Wave 0 setup folded into 04-01) — plan-checker verdict: PASSED. Next: `/gsd:execute-phase 4`
-**Status:** PLANNED — ready to execute. Two content-readiness gates will pause for the user: Formspree live-submission check (04-02) and `@fontsource-variable/inter` legitimacy check (04-05).
+**Plan:** 6 plans across 3 waves (+ Wave 0 setup folded into 04-01) — plan-checker verdict: PASSED. 04-01 done; next plan ready to execute.
+**Status:** Executing Phase 04 — Wave 0/crawlability foundation shipped (INT-SEO-01)
+**Last session:** 2026-07-01 — completed 04-01-PLAN.md (prerender infra). Stopped at: plan complete. Resume file: none.
 
 > **v1.0 Astro rebuild (Phases 1–3 below): PAUSED, not abandoned.** Still BLOCKED on user setup
 > (Squarespace→Cloudflare nameserver switch + 7 content/infra blockers — see PROJECT.md hosting/DNS
@@ -82,6 +84,7 @@ Paused: v1.0 Rebuild — [ ] Phase 1 [ ] Phase 2 [ ] Phase 3 (blocked on user se
 | Brownfield 301 redirects ship in Phase 3 (cutover phase) | Lost link equity from week-one 404s is irrecoverable; redirects + GMB updates + GSC monitoring all live in cutover | Locked Phase 3 |
 | Lighthouse + WCAG AA CI gates in Phase 3 | Per SUMMARY's Phase 3 scope — perf and a11y enforced once content is stable; failing budgets on half-built pages waste signal | Locked Phase 3 |
 | MDX-in-repo, no headless CMS | Updates infrequent; PR-based editing is sufficient; TinaCMS deferrable as a non-breaking add later | Locked pre-Phase 1 |
+| Interim prerender = custom puppeteer + `vite preview()` post-build script (not a Rollup/Rolldown plugin) | Vite 8 ships Rolldown (RC); a bundler-agnostic post-build snapshot avoids plugin-compat risk and faithfully captures React 19 metadata hoist + JSON-LD; folder-form output coexists with the GH Pages 404 hack | Locked Phase 4 (04-01) |
 | Plausible (cookieless) over GA4 | Avoids cookie-banner cost; matches transparent / driver-first posture | Locked Phase 3 |
 | Wholesale rebuild, not migration | Existing site mixes shipper + driver audiences across 6 pages; no clean migration path | Locked pre-Phase 1 |
 

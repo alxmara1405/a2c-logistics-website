@@ -116,7 +116,7 @@ Why three phases (not more):
 | 1. Foundation + Form + Pay Engine | 0/0 | Not started | - |
 | 2. Story + Trust + Ecosystem | 0/0 | Not started | - |
 | 3. SEO + Brownfield Cutover + Launch Hardening | 0/0 | Not started | - |
-| 4. Interim — SEO + Polish (current-site) | 0/6 | Planned | - |
+| 4. Interim — SEO + Polish (current-site) | 1/6 | In Progress|  |
 
 ## Coverage Summary
 
@@ -225,7 +225,7 @@ These are interim-scoped (`INT-` prefix), distinct from the 73 v1.0 rebuild requ
   6. An axe-core / Lighthouse accessibility pass shows no WCAG AA contrast failures on body/gray text, all interactive elements have visible focus states, and content images have descriptive alt text; hero image is the LCP element with LCP measured (target < 2.5s on throttled mobile) and no layout shift.
 
 **Plans**: 6 plans, 3 waves
-- [ ] 04-01-PLAN.md — Prerender infrastructure: puppeteer + vite preview snapshot, hydration guard, favicon fix, Vitest scaffold (INT-SEO-01) [Wave 1]
+- [x] 04-01-PLAN.md — Prerender infrastructure: puppeteer + vite preview snapshot, hydration guard, favicon fix, Vitest scaffold (INT-SEO-01) [Wave 1]
 - [ ] 04-02-PLAN.md — Formspree endpoint verification (live test submission, swap dead IDs) (INT-UX-01) [Wave 1, checkpoint]
 - [ ] 04-03-PLAN.md — SEO components + structured data: Seo.jsx, schema.js, Footer NAP, Home/DriveWithUs JSON-LD (INT-SEO-02/03/04/06/07) [Wave 2]
 - [ ] 04-04-PLAN.md — Sitemap, robots, OG image static assets (INT-SEO-05/06) [Wave 2]
