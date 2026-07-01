@@ -1,15 +1,25 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import AnimatedBackground from './AnimatedBackground'
 
 export default function Hero() {
+  // Gate the above-fold entrance animations behind hydration so the prerendered
+  // snapshot is never baked at opacity 0 (Pitfall 1) — content is visible without/before JS.
+  const [hydrated, setHydrated] = useState(false)
+  useEffect(() => {
+    setHydrated(true)
+  }, [])
+
   return (
     <section className="relative flex items-center justify-center bg-a2c-black overflow-hidden" style={{ height: '100dvh' }}>
-      {/* Background image + overlay */}
+      {/* Background image + overlay — LCP element: prioritized fetch, decorative alt (bg), base-aware src. */}
       <img
         src={`${import.meta.env.BASE_URL}assets/images/hero-truck.jpg`}
         alt=""
+        fetchpriority="high"
+        decoding="async"
         className="absolute inset-0 w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-a2c-black/75" />
@@ -18,7 +28,7 @@ export default function Hero() {
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={hydrated ? { opacity: 0, y: 20 } : false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-a2c-red font-semibold text-sm sm:text-base tracking-widest uppercase mb-4"
@@ -27,7 +37,7 @@ export default function Hero() {
         </motion.p>
 
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
+          initial={hydrated ? { opacity: 0, y: 30 } : false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
           className="text-4xl sm:text-5xl md:text-7xl font-heading text-a2c-white leading-tight"
@@ -37,7 +47,7 @@ export default function Hero() {
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={hydrated ? { opacity: 0, y: 20 } : false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.35 }}
           className="mt-6 text-lg sm:text-xl text-a2c-gray max-w-2xl mx-auto leading-relaxed"
@@ -47,7 +57,7 @@ export default function Hero() {
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={hydrated ? { opacity: 0, y: 20 } : false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
