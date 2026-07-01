@@ -6,6 +6,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import PageTransition from '@/components/sections/PageTransition'
 import ScrollReveal from '@/components/sections/ScrollReveal'
+import Seo from '@/seo/Seo'
 
 const contactInfo = [
   { icon: Phone, label: 'Phone', value: '(833) 562-3222', href: 'tel:+18335623222' },
@@ -41,6 +42,11 @@ export default function Contact() {
 
   return (
     <PageTransition>
+      <Seo
+        path="/contact"
+        title="Contact A2C Logistics — CDL Driver Jobs in Lincoln, NE"
+        description="Ready to drive with A2C Logistics in Lincoln, NE? Call, email, or send us a message and our team will get back to CDL Class A drivers quickly. Let's talk about your next move."
+      />
       {/* Hero */}
       <section className="pt-32 pb-20 bg-a2c-black">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -105,7 +111,7 @@ export default function Contact() {
                   Send a Message
                 </p>
                 <h2 className="text-3xl font-heading text-a2c-black mb-8">
-                  Q&A Form
+                  Send Us a Message
                 </h2>
 
                 {submitted ? (

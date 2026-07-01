@@ -160,7 +160,7 @@ export default function About() {
                 size="lg"
                 className="bg-a2c-red-ink hover:bg-a2c-red-ink/90 text-white font-semibold px-8 py-6 text-base"
               >
-                Get in Touch
+                Contact Our Team
               </Button>
             </Link>
           </ScrollReveal>
