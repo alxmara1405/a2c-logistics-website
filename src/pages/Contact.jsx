@@ -22,8 +22,8 @@ export default function Contact() {
     const form = e.target
     const data = new FormData(form)
 
-    // TODO: Replace with your Formspree endpoint
-    // Example: https://formspree.io/f/mvzvrleo
+    // Formspree endpoint mvzvrleo confirmed LIVE (accepts POST — HTTP 405 to GET) 2026-06-29;
+    // inbox delivery/ownership pending A2C confirmation (see 04-02-SUMMARY.md follow-up).
     try {
       const response = await fetch('https://formspree.io/f/mvzvrleo', {
         method: 'POST',
