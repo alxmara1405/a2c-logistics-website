@@ -54,7 +54,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <p className="text-a2c-red font-semibold text-sm tracking-widest uppercase mb-3">
+              <p className="text-a2c-red-ink font-semibold text-sm tracking-widest uppercase mb-3">
                 Why A2C
               </p>
               <h2 className="text-3xl sm:text-4xl md:text-5xl text-a2c-black">
@@ -116,7 +116,7 @@ export default function Home() {
               <Link to="/drive-with-us">
                 <Button
                   size="lg"
-                  className="bg-a2c-red hover:bg-a2c-red/90 text-white font-semibold px-8 py-6 text-base"
+                  className="bg-a2c-red-ink hover:bg-a2c-red-ink/90 text-white font-semibold px-8 py-6 text-base"
                 >
                   Join Our Team
                 </Button>

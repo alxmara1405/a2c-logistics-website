@@ -84,7 +84,7 @@ export default function Fleet() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <p className="text-a2c-red font-semibold text-sm tracking-widest uppercase mb-3">
+              <p className="text-a2c-red-ink font-semibold text-sm tracking-widest uppercase mb-3">
                 Equipment
               </p>
               <h2 className="text-3xl sm:text-4xl text-a2c-black">
@@ -116,7 +116,7 @@ export default function Fleet() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <p className="text-a2c-red font-semibold text-sm tracking-widest uppercase mb-3">
+              <p className="text-a2c-red-ink font-semibold text-sm tracking-widest uppercase mb-3">
                 Gallery
               </p>
               <h2 className="text-3xl sm:text-4xl text-a2c-black">
@@ -126,11 +126,18 @@ export default function Fleet() {
           </ScrollReveal>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {['hero-truck.jpg', 'truck-highway.jpg', 'truck-road.jpg', 'fleet-aerial.jpg', 'truck-closeup.jpg', 'trucks-parked.jpg'].map((img, i) => (
+            {[
+              { img: 'hero-truck.jpg', alt: 'A2C Logistics semi truck' },
+              { img: 'truck-highway.jpg', alt: 'A2C truck traveling on the highway' },
+              { img: 'truck-road.jpg', alt: 'A2C truck on an open road' },
+              { img: 'fleet-aerial.jpg', alt: 'Aerial view of the A2C truck fleet' },
+              { img: 'truck-closeup.jpg', alt: 'Close-up of an A2C truck cab' },
+              { img: 'trucks-parked.jpg', alt: 'A2C trucks parked at the yard' },
+            ].map(({ img, alt }, i) => (
               <ScrollReveal key={i} delay={i * 0.08}>
                 <img
                   src={`${import.meta.env.BASE_URL}assets/images/${img}`}
-                  alt={`Fleet photo ${i + 1}`}
+                  alt={alt}
                   className="aspect-[4/3] object-cover rounded-lg w-full"
                 />
               </ScrollReveal>
@@ -152,7 +159,7 @@ export default function Fleet() {
             <Link to="/contact">
               <Button
                 size="lg"
-                className="bg-a2c-red hover:bg-a2c-red/90 text-white font-semibold px-8 py-6 text-base"
+                className="bg-a2c-red-ink hover:bg-a2c-red-ink/90 text-white font-semibold px-8 py-6 text-base"
               >
                 Get in Touch
               </Button>

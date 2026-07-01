@@ -66,7 +66,7 @@ export default function Contact() {
             {/* Contact Info */}
             <ScrollReveal>
               <div>
-                <p className="text-a2c-red font-semibold text-sm tracking-widest uppercase mb-3">
+                <p className="text-a2c-red-ink font-semibold text-sm tracking-widest uppercase mb-3">
                   Get In Touch
                 </p>
                 <h2 className="text-3xl font-heading text-a2c-black mb-8">
@@ -80,7 +80,7 @@ export default function Contact() {
                         <item.icon className="w-5 h-5 text-a2c-red" />
                       </div>
                       <div>
-                        <p className="text-sm text-gray-500 uppercase tracking-wider">{item.label}</p>
+                        <p className="text-sm text-gray-600 uppercase tracking-wider">{item.label}</p>
                         {item.href ? (
                           <a
                             href={item.href}
@@ -101,7 +101,7 @@ export default function Contact() {
             {/* Contact Form */}
             <ScrollReveal delay={0.15}>
               <div>
-                <p className="text-a2c-red font-semibold text-sm tracking-widest uppercase mb-3">
+                <p className="text-a2c-red-ink font-semibold text-sm tracking-widest uppercase mb-3">
                   Send a Message
                 </p>
                 <h2 className="text-3xl font-heading text-a2c-black mb-8">
@@ -196,7 +196,7 @@ export default function Contact() {
                     <Button
                       type="submit"
                       size="lg"
-                      className="w-full bg-a2c-red hover:bg-a2c-red/90 text-white font-semibold py-6"
+                      className="w-full bg-a2c-red-ink hover:bg-a2c-red-ink/90 text-white font-semibold py-6"
                     >
                       Send Message
                     </Button>

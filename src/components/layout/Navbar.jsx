@@ -49,7 +49,7 @@ export default function Navbar() {
               </Link>
             ))}
             <Link to="/drive-with-us#apply">
-              <Button className="ml-4 bg-a2c-red hover:bg-a2c-red/90 text-white font-semibold">
+              <Button className="ml-4 bg-a2c-red-ink hover:bg-a2c-red-ink/90 text-white font-semibold">
                 Apply Now
               </Button>
             </Link>
@@ -92,7 +92,7 @@ export default function Navbar() {
                 </Link>
               ))}
               <Link to="/drive-with-us#apply" onClick={() => setMobileOpen(false)}>
-                <Button className="w-full mt-4 bg-a2c-red hover:bg-a2c-red/90 text-white font-semibold">
+                <Button className="w-full mt-4 bg-a2c-red-ink hover:bg-a2c-red-ink/90 text-white font-semibold">
                   Apply Now
                 </Button>
               </Link>

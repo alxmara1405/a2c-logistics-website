@@ -65,7 +65,7 @@ export default function Hero() {
           <Link to="/contact">
             <Button
               size="lg"
-              className="bg-a2c-red hover:bg-a2c-red/90 text-white font-semibold px-8 py-6 text-base"
+              className="bg-a2c-red-ink hover:bg-a2c-red-ink/90 text-white font-semibold px-8 py-6 text-base"
             >
               Contact Us
             </Button>

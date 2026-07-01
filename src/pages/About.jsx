@@ -61,7 +61,7 @@ export default function About() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.15}>
-              <p className="text-a2c-red font-semibold text-sm tracking-widest uppercase mb-3">
+              <p className="text-a2c-red-ink font-semibold text-sm tracking-widest uppercase mb-3">
                 Our Story
               </p>
               <h2 className="text-3xl sm:text-4xl text-a2c-black mb-6">
@@ -87,7 +87,7 @@ export default function About() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <p className="text-a2c-red font-semibold text-sm tracking-widest uppercase mb-3">
+              <p className="text-a2c-red-ink font-semibold text-sm tracking-widest uppercase mb-3">
                 What Sets Us Apart
               </p>
               <h2 className="text-3xl sm:text-4xl text-a2c-black">
@@ -117,7 +117,7 @@ export default function About() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <p className="text-a2c-red font-semibold text-sm tracking-widest uppercase mb-3">
+              <p className="text-a2c-red-ink font-semibold text-sm tracking-widest uppercase mb-3">
                 Leadership
               </p>
               <h2 className="text-3xl sm:text-4xl text-a2c-black">
@@ -131,10 +131,10 @@ export default function About() {
               <ScrollReveal key={i} delay={i * 0.1}>
                 <div className="text-center">
                   <div className="w-40 h-40 rounded-full bg-a2c-light-gray mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-a2c-gray text-xs">Photo</span>
+                    <span className="text-gray-600 text-xs">Photo</span>
                   </div>
                   <h3 className="font-heading text-a2c-black">Team Member</h3>
-                  <p className="text-sm text-gray-500 mt-1">Title / Role</p>
+                  <p className="text-sm text-gray-600 mt-1">Title / Role</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -152,7 +152,7 @@ export default function About() {
             <Link to="/contact">
               <Button
                 size="lg"
-                className="bg-a2c-red hover:bg-a2c-red/90 text-white font-semibold px-8 py-6 text-base"
+                className="bg-a2c-red-ink hover:bg-a2c-red-ink/90 text-white font-semibold px-8 py-6 text-base"
               >
                 Get in Touch
               </Button>

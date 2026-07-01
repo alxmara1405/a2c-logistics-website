@@ -21,6 +21,9 @@
   --color-a2c-black: #000000;
   --color-a2c-white: #FFFFFF;
   --color-a2c-red: #EF392C;
+  /* Darkened brand red for SMALL text on light grounds only — clears WCAG AA (>=4.5:1 on #fff & #f5f5f5).
+     The brand accent --color-a2c-red is unchanged and still used for large display text, icons, and dark grounds. */
+  --color-a2c-red-ink: #D42A1E;
   --color-a2c-gray: #D9D9D9;
   --color-a2c-dark-gray: #1a1a1a;
   --color-a2c-light-gray: #f5f5f5;
@@ -58,6 +61,14 @@
 
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Visible keyboard focus for all interactive elements (WCAG 2.4.7 / 1.4.11).
+     Uses the brand red, which clears the 3:1 non-text-contrast bar on both light and dark grounds. */
+  :focus-visible {
+    outline: 2px solid var(--color-a2c-red);
+    outline-offset: 2px;
+    border-radius: 2px;
   }
 }
 

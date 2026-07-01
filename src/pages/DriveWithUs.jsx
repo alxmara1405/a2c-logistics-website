@@ -101,7 +101,7 @@ export default function DriveWithUs() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <p className="text-a2c-red font-semibold text-sm tracking-widest uppercase mb-3">
+              <p className="text-a2c-red-ink font-semibold text-sm tracking-widest uppercase mb-3">
                 Why Drive For Us
               </p>
               <h2 className="text-3xl sm:text-4xl text-a2c-black">
@@ -131,7 +131,7 @@ export default function DriveWithUs() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-12">
-              <p className="text-a2c-red font-semibold text-sm tracking-widest uppercase mb-3">
+              <p className="text-a2c-red-ink font-semibold text-sm tracking-widest uppercase mb-3">
                 Requirements
               </p>
               <h2 className="text-3xl sm:text-4xl text-a2c-black">
@@ -158,7 +158,7 @@ export default function DriveWithUs() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-12">
-              <p className="text-a2c-red font-semibold text-sm tracking-widest uppercase mb-3">
+              <p className="text-a2c-red-ink font-semibold text-sm tracking-widest uppercase mb-3">
                 Apply Now
               </p>
               <h2 className="text-3xl sm:text-4xl text-a2c-black">
@@ -224,7 +224,7 @@ export default function DriveWithUs() {
                 <div className="space-y-2">
                   <Label htmlFor="experience">Years of Experience (CDL Class A)</Label>
                   <Select name="experience" required>
-                    <SelectTrigger className="border-a2c-gray/50 focus:border-a2c-red">
+                    <SelectTrigger aria-label="Years of Experience (CDL Class A)" className="border-a2c-gray/50 focus:border-a2c-red">
                       <SelectValue placeholder="Select your experience" />
                     </SelectTrigger>
                     <SelectContent>
@@ -239,7 +239,7 @@ export default function DriveWithUs() {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-a2c-red hover:bg-a2c-red/90 text-white font-semibold py-6"
+                  className="w-full bg-a2c-red-ink hover:bg-a2c-red-ink/90 text-white font-semibold py-6"
                 >
                   Submit Application
                 </Button>
