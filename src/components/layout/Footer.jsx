@@ -34,6 +34,26 @@ export default function Footer() {
               Driven to be different. A driver-first trucking company built by people
               who understand the road.
             </p>
+
+            {/* NAP — byte-identical to Contact.jsx contactInfo (INT-SEO-04) */}
+            <address className="mt-6 not-italic text-sm space-y-1">
+              <p className="text-a2c-white font-semibold">A2C Logistics CO.</p>
+              <p>5930 Colfax Avenue, Lincoln, NE</p>
+              <p>
+                <a href="tel:+18335623222" className="hover:text-a2c-white transition-colors">
+                  (833) 562-3222
+                </a>
+              </p>
+              <p>
+                <a
+                  href="mailto:kevin@a2clogisticsco.com"
+                  className="hover:text-a2c-white transition-colors"
+                >
+                  kevin@a2clogisticsco.com
+                </a>
+              </p>
+              <p>Mon–Fri: 8AM–6PM</p>
+            </address>
           </div>
 
           {/* Company Links */}

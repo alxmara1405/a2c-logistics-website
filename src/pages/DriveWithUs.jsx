@@ -9,6 +9,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Separator } from '@/components/ui/separator'
 import PageTransition from '@/components/sections/PageTransition'
 import ScrollReveal from '@/components/sections/ScrollReveal'
+import Seo, { JsonLd } from '@/seo/Seo'
+import { jobPosting } from '@/seo/schema'
 
 const benefits = [
   {
@@ -68,6 +70,12 @@ export default function DriveWithUs() {
 
   return (
     <PageTransition>
+      <Seo
+        path="/drive-with-us"
+        title="CDL Class A Driver Jobs — Lincoln, NE | Drive With A2C"
+        description="Now hiring Class A CDL truck drivers in Lincoln, NE — company (W-2) and owner-operator positions. Competitive pay, real home time, and driver-first support. Apply to drive with A2C today."
+      />
+      <JsonLd data={jobPosting} />
       {/* Hero */}
       <section className="pt-32 pb-20 bg-a2c-black">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -76,12 +84,13 @@ export default function DriveWithUs() {
               Careers
             </p>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading text-a2c-white">
-              Drive With{' '}
-              <span className="text-a2c-red">A2C</span>
+              CDL Class A Driver Jobs in{' '}
+              <span className="text-a2c-red">Lincoln, NE</span>
             </h1>
             <p className="mt-6 text-lg text-a2c-gray max-w-2xl mx-auto leading-relaxed">
-              Join a driver-first organization that values your experience, supports your
-              career, and keeps you on the road safely.
+              Drive with A2C — a driver-first organization that values your experience,
+              supports your career, and keeps you on the road safely. Company and
+              owner-operator positions available.
             </p>
           </ScrollReveal>
         </div>

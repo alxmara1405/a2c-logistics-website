@@ -6,6 +6,8 @@ import { Button } from '@/components/ui/button'
 import PageTransition from '@/components/sections/PageTransition'
 import ScrollReveal from '@/components/sections/ScrollReveal'
 import Hero from '@/components/sections/Hero'
+import Seo, { JsonLd } from '@/seo/Seo'
+import { localBusiness } from '@/seo/schema'
 
 const services = [
   {
@@ -39,6 +41,12 @@ const stats = [
 export default function Home() {
   return (
     <PageTransition>
+      <Seo
+        path="/"
+        title="A2C Logistics CO. — CDL Class A Driver Jobs in Lincoln, NE"
+        description="Driver-first trucking company in Lincoln, NE hiring company (W-2) and owner-operator CDL Class A drivers. Steady miles, real dispatch support, consistent home time. Driven to be different."
+      />
+      <JsonLd data={localBusiness} />
       <Hero />
 
       {/* Services Section */}
