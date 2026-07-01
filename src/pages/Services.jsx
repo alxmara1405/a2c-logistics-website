@@ -5,6 +5,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import PageTransition from '@/components/sections/PageTransition'
 import ScrollReveal from '@/components/sections/ScrollReveal'
+import Seo from '@/seo/Seo'
 
 const services = [
   {
@@ -55,6 +56,11 @@ const whyUs = [
 export default function Services() {
   return (
     <PageTransition>
+      <Seo
+        path="/services"
+        title="Driver Support & Benefits — A2C Logistics, Lincoln, NE"
+        description="Steady freight, competitive pay, real dispatch support, and 24/7 backing for CDL Class A drivers at A2C Logistics in Lincoln, NE. Everything you need to keep moving and earning."
+      />
       {/* Hero */}
       <section className="pt-32 pb-20 bg-a2c-black">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
