@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alxmara1405.github.io/a2c-logistics-website/sitemap.xml
