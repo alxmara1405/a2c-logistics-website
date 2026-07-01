@@ -118,36 +118,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Team Placeholder */}
-      <section className="py-24 bg-a2c-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal>
-            <div className="text-center mb-16">
-              <p className="text-a2c-red-ink font-semibold text-sm tracking-widest uppercase mb-3">
-                Leadership
-              </p>
-              <h2 className="text-3xl sm:text-4xl text-a2c-black">
-                Meet the Team
-              </h2>
-            </div>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((_, i) => (
-              <ScrollReveal key={i} delay={i * 0.1}>
-                <div className="text-center">
-                  <div className="w-40 h-40 rounded-full bg-a2c-light-gray mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-gray-600 text-xs">Photo</span>
-                  </div>
-                  <h3 className="font-heading text-a2c-black">Team Member</h3>
-                  <p className="text-sm text-gray-600 mt-1">Title / Role</p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="py-20 bg-a2c-black text-center">
         <div className="max-w-3xl mx-auto px-4">
