@@ -7,7 +7,7 @@
 //
 // NAP single-source-of-truth = src/pages/Contact.jsx `contactInfo` (lines 10-15).
 // The strings below are byte-identical to that source (INT-SEO-04):
-//   name 'A2C Logistics CO.' · street '5930 Colfax Avenue' · locality 'Lincoln' · region 'NE'
+//   name 'A2C Logistics CO.' · street '5950 Colfax Avenue' · locality 'Lincoln' · region 'NE' · ZIP '68507'
 //   phone '(833) 562-3222' -> telephone '+1-833-562-3222' · email 'kevin@a2clogisticsco.com'
 //   hours 'Mon–Fri: 8AM–6PM' -> openingHours 'Mo-Fr 08:00-18:00'
 //
@@ -34,8 +34,7 @@ export const jobPosting = {
     '<p>A2C Logistics CO. — a driver-first trucking company based in Lincoln, NE — ' +
     'is hiring <strong>Class A CDL truck drivers</strong> for both company (W-2) and ' +
     'owner-operator (lease-on) positions. Steady miles, real dispatch support, and ' +
-    'consistent home time you can count on. Pay figures below are a placeholder range ' +
-    'as of July 2026 and will be updated with confirmed A2C figures.</p>' +
+    'consistent home time you can count on.</p>' +
     '<ul><li>Valid Class A CDL</li><li>Minimum 2 years CDL Class A experience</li>' +
     '<li>Clean driving record</li><li>Pass DOT physical and drug screening</li></ul>',
   datePosted, // REQUIRED, ISO 8601 (build date)
@@ -53,28 +52,15 @@ export const jobPosting = {
     '@type': 'Place',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '5930 Colfax Avenue',
+      streetAddress: '5950 Colfax Avenue',
       addressLocality: 'Lincoln',
       addressRegion: 'NE',
-      postalCode: '', // ZIP pending — open content dependency (RESEARCH A2); addressCountry alone satisfies Google
+      postalCode: '68507',
       addressCountry: 'US', // REQUIRED inside the address
     },
   },
-  // PLACEHOLDER pay range — pending real A2C figures (as of July 2026). Locked decision:
-  // publish pay as a marked RANGE, never a single hard number (stale-number / screenshot
-  // trap). unitText stays a valid schema.org duration enum ('YEAR') so the Rich Results
-  // Test passes with zero errors; the "as of July 2026" marker lives in the description
-  // above and in this comment. Swap min/maxValue when confirmed A2C figures arrive.
-  baseSalary: {
-    '@type': 'MonetaryAmount',
-    currency: 'USD',
-    value: {
-      '@type': 'QuantitativeValue',
-      minValue: 60000, // PLACEHOLDER — replace with confirmed A2C figure
-      maxValue: 90000, // PLACEHOLDER — replace with confirmed A2C figure
-      unitText: 'YEAR',
-    },
-  },
+  // baseSalary intentionally OMITTED — A2C is not publishing pay figures on the site.
+  // Google allows JobPosting without baseSalary (it's recommended, not required).
   identifier: {
     '@type': 'PropertyValue',
     name: 'A2C Logistics CO.',
@@ -93,10 +79,10 @@ export const localBusiness = {
   email: 'kevin@a2clogisticsco.com',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '5930 Colfax Avenue',
+    streetAddress: '5950 Colfax Avenue',
     addressLocality: 'Lincoln',
     addressRegion: 'NE',
-    postalCode: '', // ZIP pending — open content dependency (RESEARCH A2)
+    postalCode: '68507',
     addressCountry: 'US',
   },
   openingHours: 'Mo-Fr 08:00-18:00', // Mon–Fri 8AM–6PM per NAP

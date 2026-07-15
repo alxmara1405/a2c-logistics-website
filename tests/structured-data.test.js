@@ -80,7 +80,7 @@ describe('INT-SEO-04: NAP byte-equality across source files', () => {
   const schema = readFileSync(join('src', 'seo', 'schema.js'), 'utf8')
 
   // Address-block NAP owned by Contact.jsx contactInfo — must match byte-for-byte in the Footer.
-  const ADDRESS_NAP = ['5930 Colfax Avenue', 'Lincoln', 'NE', '(833) 562-3222']
+  const ADDRESS_NAP = ['5950 Colfax Avenue', 'Lincoln', 'NE', '(833) 562-3222']
   for (const s of ADDRESS_NAP) {
     it(`"${s}" is byte-identical in Contact.jsx and Footer.jsx`, () => {
       expect(contact.includes(s), `Contact.jsx missing NAP token: ${s}`).toBe(true)

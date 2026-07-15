@@ -11,6 +11,7 @@ import PageTransition from '@/components/sections/PageTransition'
 import ScrollReveal from '@/components/sections/ScrollReveal'
 import Seo, { JsonLd } from '@/seo/Seo'
 import { jobPosting } from '@/seo/schema'
+import { formatPhoneNumber } from '@/lib/utils'
 
 const benefits = [
   {
@@ -45,6 +46,7 @@ const requirements = [
 
 export default function DriveWithUs() {
   const [submitted, setSubmitted] = useState(false)
+  const [phone, setPhone] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -62,6 +64,7 @@ export default function DriveWithUs() {
       if (response.ok) {
         setSubmitted(true)
         form.reset()
+        setPhone('')
       }
     } catch {
       alert('Something went wrong. Please try again or contact us directly.')
@@ -215,8 +218,12 @@ export default function DriveWithUs() {
                     id="phone"
                     name="phone"
                     type="tel"
+                    inputMode="tel"
+                    maxLength={14}
                     placeholder="(555) 123-4567"
                     required
+                    value={phone}
+                    onChange={(e) => setPhone(formatPhoneNumber(e.target.value))}
                     className="border-a2c-gray/50 focus:border-a2c-red"
                   />
                 </div>

@@ -38,7 +38,7 @@ export default function Footer() {
             {/* NAP — byte-identical to Contact.jsx contactInfo (INT-SEO-04) */}
             <address className="mt-6 not-italic text-sm space-y-1">
               <p className="text-a2c-white font-semibold">A2C Logistics CO.</p>
-              <p>5930 Colfax Avenue, Lincoln, NE</p>
+              <p>5950 Colfax Avenue, Lincoln, NE 68507</p>
               <p>
                 <a href="tel:+18335623222" className="hover:text-a2c-white transition-colors">
                   (833) 562-3222

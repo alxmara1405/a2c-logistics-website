@@ -7,16 +7,18 @@ import { Label } from '@/components/ui/label'
 import PageTransition from '@/components/sections/PageTransition'
 import ScrollReveal from '@/components/sections/ScrollReveal'
 import Seo from '@/seo/Seo'
+import { formatPhoneNumber } from '@/lib/utils'
 
 const contactInfo = [
   { icon: Phone, label: 'Phone', value: '(833) 562-3222', href: 'tel:+18335623222' },
   { icon: Mail, label: 'Email', value: 'kevin@a2clogisticsco.com', href: 'mailto:kevin@a2clogisticsco.com' },
-  { icon: MapPin, label: 'Address', value: '5930 Colfax Avenue, Lincoln, NE', href: null },
+  { icon: MapPin, label: 'Address', value: '5950 Colfax Avenue, Lincoln, NE 68507', href: null },
   { icon: Clock, label: 'Hours', value: 'Mon–Fri: 8AM–6PM', href: null },
 ]
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false)
+  const [phone, setPhone] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -34,6 +36,7 @@ export default function Contact() {
       if (response.ok) {
         setSubmitted(true)
         form.reset()
+        setPhone('')
       }
     } catch {
       alert('Something went wrong. Please try again or email us directly.')
@@ -171,7 +174,11 @@ export default function Contact() {
                         id="phone"
                         name="phone"
                         type="tel"
+                        inputMode="tel"
+                        maxLength={14}
                         placeholder="(555) 123-4567"
+                        value={phone}
+                        onChange={(e) => setPhone(formatPhoneNumber(e.target.value))}
                         className="border-a2c-gray/50 focus:border-a2c-red"
                       />
                     </div>
