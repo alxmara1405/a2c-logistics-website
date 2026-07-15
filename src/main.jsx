@@ -7,7 +7,7 @@ import App from './App.jsx'
 const el = document.getElementById('root')
 const app = (
   <StrictMode>
-    <BrowserRouter basename="/a2c-logistics-website">
+    <BrowserRouter basename="/">
       <App />
     </BrowserRouter>
   </StrictMode>

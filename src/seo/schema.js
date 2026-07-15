@@ -15,7 +15,7 @@
 // These objects are JSON.stringify-ed and injected via dangerouslySetInnerHTML (see the
 // JsonLd helper in Seo.jsx). NEVER interpolate user/request/form/URL input into them.
 
-const ORIGIN = 'https://alxmara1405.github.io/a2c-logistics-website'
+const ORIGIN = 'https://truckinga2c.com'
 
 // datePosted = build date; validThrough = build date + 90 days. Both freeze at build
 // time on a static host. A scheduled monthly CI rebuild (GH Actions cron) rolls them

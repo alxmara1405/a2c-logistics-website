@@ -22,8 +22,8 @@ import puppeteer from 'puppeteer'
 import { writeFile, mkdir } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 
-const BASE = '/a2c-logistics-website/'
-const ORIGIN = 'https://alxmara1405.github.io/a2c-logistics-website' // must match src/seo/Seo.jsx
+const BASE = '/'
+const ORIGIN = 'https://truckinga2c.com' // must match src/seo/Seo.jsx
 const ROUTES = ['', 'about', 'services', 'fleet', 'drive-with-us', 'contact']
 const SETTLE_MS = 250 // let React 19 metadata hoist + JSON-LD land in the DOM
 const IS_CI = process.env.CI === 'true' || process.env.CI === '1'
