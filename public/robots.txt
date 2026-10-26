@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://truckinga2c.com/sitemap.xml
+Sitemap: https://a2clogisticsco.com/sitemap.xml

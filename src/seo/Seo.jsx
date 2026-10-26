@@ -8,7 +8,7 @@
 // `import.meta.env.BASE_URL`-relative (that pattern is only for runtime <img>/CSS assets).
 // Relative OG image URLs are rejected by most scrapers — hence the absolute ORIGIN.
 
-const ORIGIN = 'https://truckinga2c.com'
+const ORIGIN = 'https://a2clogisticsco.com'
 
 export default function Seo({ path, title, description, ogImage = '/og-image.jpg' }) {
   const url = `${ORIGIN}${path}` // path like '/drive-with-us' (home is '/')
