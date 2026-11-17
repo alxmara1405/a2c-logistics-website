@@ -32,7 +32,7 @@ const fleetFeatures = [
 
 const equipmentTypes = [
   { type: 'Dry Van', description: 'Standard enclosed trailers for general freight', image: 'truck-closeup.jpg' },
-  { type: 'Flatbed', description: 'Open trailers for oversized and heavy cargo', image: 'truck-highway.jpg' },
+  { type: 'Flatbed', description: 'Open-deck trailers for standard freight loaded from the side or top', image: 'truck-highway.jpg' },
   { type: 'Reefer', description: 'Temperature-controlled trailers for perishable goods', image: 'truck-road.jpg' },
   { type: 'Step Deck', description: 'Low-profile trailers for tall or heavy equipment', image: 'trucks-parked.jpg' },
 ]
